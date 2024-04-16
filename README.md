@@ -7,3 +7,12 @@
 ### Comando cProfile:
 
     python -m cProfile [nome_arquivo]
+
+### Ideias de algoritmos:
+
+- _Quicksort_
+- _Mergesort_
+- _Linear Search_
+- _Binary Search_
+- _Breadth First Search (BFS)_
+- _Depth First Search (DFS)_
