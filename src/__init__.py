@@ -1,5 +1,1 @@
-# Python
-from .cPython.purePython import fibonacci_pure_python as pure_python
-
-# Cython
-from .pureCython.pureCython import fibonacci_pure_cython as pure_cython
+from .pureCython import get_max_value_using_C_implementation as get_max_value_C

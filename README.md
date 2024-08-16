@@ -4,10 +4,6 @@
 
     cythonize -i [nome_arquivo]
 
-### Comando cProfile:
-
-    python -m cProfile [nome_arquivo]
-
 ### Ideias de algoritmos:
 
 - _Quicksort_

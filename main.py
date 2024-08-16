@@ -1,21 +1,29 @@
-from timeit import timeit
+import time
 from typing import Final
 
-from src import compiled_notTyped, compiled_Typed, pure_cython, pure_python
+import numpy as np
+from numpy import ndarray
 
-NTH_FIBONACCI_NUMBER: Final[int] = 1_000_000
-NUMBER_CALLS: Final[int] = 1_000
+NUM_REGISTROS: Final[int] = 4.5 * 10**9
 
-python_timing = timeit(lambda: pure_python(NTH_FIBONACCI_NUMBER),
-                       number=NUMBER_CALLS)
-compiled = timeit(lambda: compiled_notTyped(NTH_FIBONACCI_NUMBER),
-                  number=NUMBER_CALLS)
-compiled_typed = timeit(lambda: compiled_Typed(NTH_FIBONACCI_NUMBER),
-                        number=NUMBER_CALLS)
-cython_timing = timeit(lambda: pure_cython(NTH_FIBONACCI_NUMBER),
-                       number=NUMBER_CALLS)
+# start_time = time.perf_counter()
+# # ARRAY_NUMEROS: ndarray = np.arange(NUM_REGISTROS, dtype=np.uint16)
+# ARRAY_NUMEROS: ndarray = np.arange(NUM_REGISTROS, dtype=np.uint32)
+# stop_time = time.perf_counter()
+# print(f"Elapsed ARANGE time: {stop_time - start_time:.3f}s")
 
-print(f"{python_timing = : .5f}")
-print(f"{compiled = : .5f}")
-print(f"{compiled_typed = : .5f}")
-print(f"{cython_timing = : .5f}")
+# start_time = time.perf_counter()
+# min_value_from_array = np.min(ARRAY_NUMEROS)
+# stop_time = time.perf_counter()
+# print(f"Elapsed MIN time: {stop_time - start_time:.3f}s")
+
+# start_time = time.perf_counter()
+# max_value_from_array = np.max(ARRAY_NUMEROS)
+# stop_time = time.perf_counter()
+# print(f"Elapsed MAX time: {stop_time - start_time:.3f}s")
+
+from src.pureCython import create_array_wrapper
+
+# from src.pureCython.handle_array import create_array_wrapper
+
+create_array_wrapper(NUM_REGISTROS)
