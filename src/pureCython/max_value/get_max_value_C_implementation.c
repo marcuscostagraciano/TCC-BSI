@@ -1,6 +1,6 @@
 #include <stddef.h>  // for size_t
 
-unsigned long get_max_value(const unsigned long *array, size_t size) {
+unsigned long get_max_value(const unsigned long *array, const size_t size) {
     if (size == 0)
         return 0;
 
