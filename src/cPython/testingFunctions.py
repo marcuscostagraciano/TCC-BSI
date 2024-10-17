@@ -45,22 +45,37 @@ def variation_coefficient(ndarray):
     return ndarray_std / ndarray_arithmetic_mean
 
 
-def amplitude(ndarray):
+def max_value(ndarray):
     max_value = ndarray[0]
-    min_value = ndarray[0]
 
     for number in ndarray:
         if max_value < number:
             max_value = number
+
+    return max_value
+
+
+def min_value(ndarray):
+    min_value = ndarray[0]
+
+    for number in ndarray:
         if number < min_value:
             min_value = number
 
-    return max_value - min_value
+    return min_value
 
 
-print(f"{arithmetic_mean([1, 2, 3]) = }")
-print(f"{geometric_mean([3, 12, 16, 36]) = }")
-print(f"{variance([5, 8, 10, 7]) = }")
-print(f"{standard_deviation([5, 8, 10, 7]) = }")
-print(f"{variation_coefficient([5, 8, 10, 7]) = }")
-print(f"{amplitude([5, 8, 10, 7]) = }")
+def amplitude(ndarray):
+    max_v = max_value(ndarray)
+    min_v = min_value(ndarray)
+    return max_v - min_v
+
+
+# print(f"{arithmetic_mean([1, 2, 3]) = }")
+# print(f"{geometric_mean([3, 12, 16, 36]) = }")
+# print(f"{variance([5, 8, 10, 7]) = }")
+# print(f"{standard_deviation([5, 8, 10, 7]) = }")
+# print(f"{variation_coefficient([5, 8, 10, 7]) = }")
+# print(f"{max_value([5, 8, 10, 7]) = }")
+# print(f"{min_value([5, 8, 10, 7]) = }")
+# print(f"{amplitude([5, 8, 10, 7]) = }")
