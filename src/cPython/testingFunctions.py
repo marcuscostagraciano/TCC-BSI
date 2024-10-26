@@ -71,11 +71,31 @@ def amplitude(ndarray):
     return max_v - min_v
 
 
-# print(f"{arithmetic_mean([1, 2, 3]) = }")
-# print(f"{geometric_mean([3, 12, 16, 36]) = }")
-# print(f"{variance([5, 8, 10, 7]) = }")
-# print(f"{standard_deviation([5, 8, 10, 7]) = }")
-# print(f"{variation_coefficient([5, 8, 10, 7]) = }")
-# print(f"{max_value([5, 8, 10, 7]) = }")
-# print(f"{min_value([5, 8, 10, 7]) = }")
-# print(f"{amplitude([5, 8, 10, 7]) = }")
+def arithmetic_mean_w_python_functions(ndarray):
+    return sum(ndarray) / len(ndarray)
+
+
+def variance_w_python_functions(ndarray):
+    ndarray_mean = arithmetic_mean_w_python_functions(ndarray)
+    ndarray_sum = sum([(number - ndarray_mean) ** 2 for number in ndarray])
+    ndarray_length = len(ndarray)
+
+    return ndarray_sum / (ndarray_length - 1)
+
+
+def standard_deviation_w_python_functions(ndarray):
+    ndarray_variance = variance_w_python_functions(ndarray)
+
+    return ndarray_variance ** (1 / 2)
+
+
+def max_value_w_python_functions(ndarray):
+    return max(ndarray)
+
+
+def min_value_w_python_functions(ndarray):
+    return min(ndarray)
+
+
+def amplitude_w_python_functions(ndarray):
+    return max(ndarray) - min(ndarray)
