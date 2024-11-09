@@ -13,7 +13,8 @@ from cython cimport Py_ssize_t
 @cython.boundscheck(False)
 @cython.wraparound(False)
 cdef unsigned long get_amplitude_cython(unsigned long *data_ptr, Py_ssize_t array_size):
-    cdef unsigned long i, min_value = data_ptr[0], max_value = data_ptr[0]
+    cdef Py_ssize_t i
+    cdef unsigned long min_value = data_ptr[0], max_value = data_ptr[0]
 
     for i in range(1, array_size):
         if data_ptr[i] < min_value:

@@ -7,7 +7,9 @@ from numpy import min as np_min, max as np_max
 @cython.boundscheck(False)
 @cython.wraparound(False)
 cdef long double get_max(unsigned long *data_ptr, Py_ssize_t array_size):
-    cdef unsigned long i, max = data_ptr[0]
+    cdef Py_ssize_t i
+    cdef unsigned long max = data_ptr[0]
+
     for i in range(1, array_size):
         if max < data_ptr[i]:
             max = data_ptr[i]
@@ -20,7 +22,9 @@ def get_max_py_wrapper(np.ndarray[unsigned long, ndim=1] array):
 @cython.boundscheck(False)
 @cython.wraparound(False)
 cdef long double get_min(unsigned long *data_ptr, Py_ssize_t array_size):
-    cdef unsigned long i, min = data_ptr[0]
+    cdef Py_ssize_t i
+    cdef unsigned long min = data_ptr[0]
+
     for i in range(1, array_size):
         if data_ptr[i] < min:
             min = data_ptr[i]
