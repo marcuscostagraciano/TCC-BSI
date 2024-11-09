@@ -5,8 +5,8 @@ from cython cimport Py_ssize_t
 
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cdef unsigned long get_mean_value_cython(np.ndarray[unsigned long, ndim=1] array):
-    cdef unsigned long *data_ptr = <unsigned long *> array.data
+cdef double get_mean_value_cython(np.ndarray[unsigned long, ndim=1] array):
+    cdef const unsigned long *data_ptr = <unsigned long *> array.data
     cdef Py_ssize_t array_size = array.size
     cdef unsigned long sum_array_values = 0
 
