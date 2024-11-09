@@ -9,6 +9,7 @@ from src import get_mean_value_cython
 
 # NUM_REGISTROS: Final[int] = 4.5 * 10**9
 NUM_REGISTROS: Final[int] = 0.1 * 10**9
+NUM_REGISTROS: Final[int] = 1 * 10**9
 
 start_time = perf_counter()
 ARRAY_NUMEROS = np.arange(NUM_REGISTROS, dtype=np.uint32)
@@ -54,7 +55,14 @@ print(f"np_amplitude result: {np_amplitude_result}")
 
 # MUST DO
 # AVERAGE
+
 # MEAN
+sttime = perf_counter()
+np_mean_value_result = np.mean(ARRAY_NUMEROS)
+edtime = perf_counter()
+print(f"np_mean_value timing: {edtime - sttime:.5f}s")
+print(f"np_mean_value result: {np_mean_value_result}")
+
 sttime = perf_counter()
 cy_mean_value_result = get_mean_value_cython(ARRAY_NUMEROS)
 edtime = perf_counter()

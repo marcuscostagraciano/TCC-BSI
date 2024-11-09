@@ -2536,7 +2536,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy_7ndarray_4data_data(PyArrayObject *__p
 /* Module declarations from "numpy" */
 
 /* Module declarations from "mean" */
-static double __pyx_f_4mean_get_mean_value_cython(PyArrayObject *); /*proto*/
+static long double __pyx_f_4mean_get_mean_value_cython(PyArrayObject *); /*proto*/
 /* #### Code section: typeinfo ### */
 static __Pyx_TypeInfo __Pyx_TypeInfo_unsigned_long = { "unsigned long", NULL, sizeof(unsigned long), { 0 }, 0, __PYX_IS_UNSIGNED(unsigned long) ? 'U' : 'I', __PYX_IS_UNSIGNED(unsigned long), 0 };
 /* #### Code section: before_global_var ### */
@@ -4562,19 +4562,19 @@ static CYTHON_INLINE NPY_DATETIMEUNIT __pyx_f_5numpy_get_datetime64_unit(PyObjec
 /* "mean.pyx":8
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
- * cdef double get_mean_value_cython(np.ndarray[unsigned long, ndim=1] array):             # <<<<<<<<<<<<<<
+ * cdef long double get_mean_value_cython(np.ndarray[unsigned long, ndim=1] array):             # <<<<<<<<<<<<<<
  *     cdef const unsigned long *data_ptr = <unsigned long *> array.data
  *     cdef Py_ssize_t array_size = array.size
  */
 
-static double __pyx_f_4mean_get_mean_value_cython(PyArrayObject *__pyx_v_array) {
+static long double __pyx_f_4mean_get_mean_value_cython(PyArrayObject *__pyx_v_array) {
   unsigned long const *__pyx_v_data_ptr;
   Py_ssize_t __pyx_v_array_size;
-  unsigned long __pyx_v_sum_array_values;
+  unsigned PY_LONG_LONG __pyx_v_sum_array_values;
   Py_ssize_t __pyx_v_i;
   __Pyx_LocalBuf_ND __pyx_pybuffernd_array;
   __Pyx_Buffer __pyx_pybuffer_array;
-  double __pyx_r;
+  long double __pyx_r;
   Py_ssize_t __pyx_t_1;
   Py_ssize_t __pyx_t_2;
   Py_ssize_t __pyx_t_3;
@@ -4593,18 +4593,18 @@ static double __pyx_f_4mean_get_mean_value_cython(PyArrayObject *__pyx_v_array) 
 
   /* "mean.pyx":9
  * @cython.wraparound(False)
- * cdef double get_mean_value_cython(np.ndarray[unsigned long, ndim=1] array):
+ * cdef long double get_mean_value_cython(np.ndarray[unsigned long, ndim=1] array):
  *     cdef const unsigned long *data_ptr = <unsigned long *> array.data             # <<<<<<<<<<<<<<
  *     cdef Py_ssize_t array_size = array.size
- *     cdef unsigned long sum_array_values = 0
+ *     cdef unsigned long long sum_array_values = 0
  */
   __pyx_v_data_ptr = ((unsigned long *)__pyx_f_5numpy_7ndarray_4data_data(((PyArrayObject *)__pyx_v_array)));
 
   /* "mean.pyx":10
- * cdef double get_mean_value_cython(np.ndarray[unsigned long, ndim=1] array):
+ * cdef long double get_mean_value_cython(np.ndarray[unsigned long, ndim=1] array):
  *     cdef const unsigned long *data_ptr = <unsigned long *> array.data
  *     cdef Py_ssize_t array_size = array.size             # <<<<<<<<<<<<<<
- *     cdef unsigned long sum_array_values = 0
+ *     cdef unsigned long long sum_array_values = 0
  * 
  */
   __pyx_v_array_size = __pyx_f_5numpy_7ndarray_4size_size(((PyArrayObject *)__pyx_v_array));
@@ -4612,14 +4612,14 @@ static double __pyx_f_4mean_get_mean_value_cython(PyArrayObject *__pyx_v_array) 
   /* "mean.pyx":11
  *     cdef const unsigned long *data_ptr = <unsigned long *> array.data
  *     cdef Py_ssize_t array_size = array.size
- *     cdef unsigned long sum_array_values = 0             # <<<<<<<<<<<<<<
+ *     cdef unsigned long long sum_array_values = 0             # <<<<<<<<<<<<<<
  * 
  *     for i in range(array_size):
  */
   __pyx_v_sum_array_values = 0;
 
   /* "mean.pyx":13
- *     cdef unsigned long sum_array_values = 0
+ *     cdef unsigned long long sum_array_values = 0
  * 
  *     for i in range(array_size):             # <<<<<<<<<<<<<<
  *         sum_array_values += data_ptr[i]
@@ -4657,7 +4657,7 @@ static double __pyx_f_4mean_get_mean_value_cython(PyArrayObject *__pyx_v_array) 
   /* "mean.pyx":8
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
- * cdef double get_mean_value_cython(np.ndarray[unsigned long, ndim=1] array):             # <<<<<<<<<<<<<<
+ * cdef long double get_mean_value_cython(np.ndarray[unsigned long, ndim=1] array):             # <<<<<<<<<<<<<<
  *     cdef const unsigned long *data_ptr = <unsigned long *> array.data
  *     cdef Py_ssize_t array_size = array.size
  */
@@ -4792,7 +4792,7 @@ static PyObject *__pyx_pf_4mean_get_mean_value_py_wrapper(CYTHON_UNUSED PyObject
   __Pyx_Buffer __pyx_pybuffer_array;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
-  double __pyx_t_1;
+  long double __pyx_t_1;
   PyObject *__pyx_t_2 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
@@ -4814,7 +4814,7 @@ static PyObject *__pyx_pf_4mean_get_mean_value_py_wrapper(CYTHON_UNUSED PyObject
  *     return get_mean_value_cython(array)             # <<<<<<<<<<<<<<
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_4mean_get_mean_value_cython(((PyArrayObject *)__pyx_v_array)); if (unlikely(__pyx_t_1 == ((double)-1) && PyErr_Occurred())) __PYX_ERR(0, 19, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_4mean_get_mean_value_cython(((PyArrayObject *)__pyx_v_array)); if (unlikely(__pyx_t_1 == ((long double)-1) && PyErr_Occurred())) __PYX_ERR(0, 19, __pyx_L1_error)
   __pyx_t_2 = PyFloat_FromDouble(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 19, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
