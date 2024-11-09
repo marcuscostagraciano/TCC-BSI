@@ -4,3 +4,4 @@ from .pureCython import get_max_py_wrapper as get_max_value
 from .pureCython import get_max_using_numpy, get_min_using_numpy
 from .pureCython import get_mean_value_py_wrapper as get_mean_value_cython
 from .pureCython import get_min_py_wrapper as get_min_value
+from .pureCython import get_variance_py_wrapper as get_variance

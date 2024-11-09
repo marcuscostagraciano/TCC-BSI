@@ -7,3 +7,4 @@ from .min_max import (
     get_min_py_wrapper,
     get_min_using_numpy,
 )
+from .variance import get_variance_py_wrapper
