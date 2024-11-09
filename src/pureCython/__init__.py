@@ -1,3 +1,9 @@
 # from .max_value import get_max_value_using_C_implementation
 from .amplitude import get_amplitude_py_wrapper
 from .mean import get_mean_value_py_wrapper
+from .min_max import (
+    get_max_py_wrapper,
+    get_max_using_numpy,
+    get_min_py_wrapper,
+    get_min_using_numpy,
+)

@@ -5,11 +5,8 @@ from cython cimport Py_ssize_t
 
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cdef long double get_mean_value_cython(np.ndarray[unsigned long, ndim=1] array):
-    cdef const unsigned long *data_ptr = <unsigned long *> array.data
-    cdef Py_ssize_t array_size = array.size
+cdef long double get_mean_value_cython(unsigned long *data_ptr, Py_ssize_t array_size):
     cdef unsigned long i
-
     cdef unsigned long long sum_array_values = 0
 
     for i in range(array_size):
@@ -18,4 +15,4 @@ cdef long double get_mean_value_cython(np.ndarray[unsigned long, ndim=1] array):
     return sum_array_values / array_size
 
 def get_mean_value_py_wrapper(np.ndarray[unsigned long, ndim=1] array):
-    return get_mean_value_cython(array)
+    return get_mean_value_cython(<unsigned long *> array.data, array.size)

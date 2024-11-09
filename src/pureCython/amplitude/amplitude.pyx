@@ -12,10 +12,7 @@ from cython cimport Py_ssize_t
 
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cdef unsigned long get_amplitude_cython(np.ndarray[unsigned long, ndim=1] array):
-    cdef const unsigned long *data_ptr = <unsigned long *> array.data
-    cdef Py_ssize_t array_size = array.size
-
+cdef unsigned long get_amplitude_cython(unsigned long *data_ptr, Py_ssize_t array_size):
     cdef unsigned long i, min_value = data_ptr[0], max_value = data_ptr[0]
 
     for i in range(1, array_size):
@@ -28,4 +25,4 @@ cdef unsigned long get_amplitude_cython(np.ndarray[unsigned long, ndim=1] array)
 
 
 def get_amplitude_py_wrapper(np.ndarray[unsigned long, ndim=1] array):
-    return get_amplitude_cython(array)
+    return get_amplitude_cython(<unsigned long *> array.data, array.size)
