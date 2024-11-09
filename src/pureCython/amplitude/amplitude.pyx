@@ -2,6 +2,13 @@
 cimport cython
 cimport numpy as np
 from cython cimport Py_ssize_t
+# from numpy import ptp
+
+# @cython.boundscheck(False)
+# @cython.wraparound(False)
+# cdef unsigned long get_amplitude_cython_and_numpy(np.ndarray[np.uint32_t, ndim=1] array):
+#     return ptp(array)
+
 
 @cython.boundscheck(False)
 @cython.wraparound(False)
