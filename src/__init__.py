@@ -4,9 +4,9 @@ from .pureCython import get_amplitude_py_wrapper as get_amplitude_cython
 from .pureCython import (
     get_amplitude_using_C_minMax,
     get_max_using_c,
-    get_max_using_numpy,
+    # get_max_using_numpy,
     get_min_using_c,
-    get_min_using_numpy,
+    # get_min_using_numpy,
 )
 from .pureCython import get_max_py_wrapper as get_max_value
 from .pureCython import get_mean_value_py_wrapper as get_mean_value_cython
