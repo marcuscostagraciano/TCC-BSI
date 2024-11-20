@@ -2,13 +2,12 @@
 cimport cython
 cimport numpy as np
 from cython cimport Py_ssize_t
-# from numpy import ptp
 
-# @cython.boundscheck(False)
-# @cython.wraparound(False)
-# cdef unsigned long get_amplitude_cython_and_numpy(np.ndarray[np.uint32_t, ndim=1] array):
-#     return ptp(array)
+cdef extern from '../min_max/c_implementations/maxValue_C_implementation.c':
+    unsigned long get_max_value_using_C(const unsigned long *array, const size_t size)
 
+cdef extern from '../min_max/c_implementations/minValue_C_implementation.c':
+    unsigned long get_min_value_using_C(const unsigned long *array, const size_t size)
 
 @cython.boundscheck(False)
 @cython.wraparound(False)
@@ -27,3 +26,6 @@ cdef unsigned long get_amplitude_cython(unsigned long *data_ptr, Py_ssize_t arra
 
 def get_amplitude_py_wrapper(np.ndarray[unsigned long, ndim=1] array):
     return get_amplitude_cython(<unsigned long *> array.data, array.size)
+
+def get_amplitude_using_C_minMax(np.ndarray[unsigned long, ndim=1] array):
+    return get_max_value_using_C(<unsigned long *> array.data, array.size) - get_min_value_using_C(<unsigned long *> array.data, array.size)

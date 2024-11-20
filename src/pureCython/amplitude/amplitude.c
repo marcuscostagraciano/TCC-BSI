@@ -8,9 +8,12 @@
             "C:\\Users\\Administrator\\Documents\\Trabalhos\\TCC-BSI\\.venv\\Lib\\site-packages\\numpy\\_core\\include\\numpy\\arrayscalars.h",
             "C:\\Users\\Administrator\\Documents\\Trabalhos\\TCC-BSI\\.venv\\Lib\\site-packages\\numpy\\_core\\include\\numpy\\ndarrayobject.h",
             "C:\\Users\\Administrator\\Documents\\Trabalhos\\TCC-BSI\\.venv\\Lib\\site-packages\\numpy\\_core\\include\\numpy\\ndarraytypes.h",
-            "C:\\Users\\Administrator\\Documents\\Trabalhos\\TCC-BSI\\.venv\\Lib\\site-packages\\numpy\\_core\\include\\numpy\\ufuncobject.h"
+            "C:\\Users\\Administrator\\Documents\\Trabalhos\\TCC-BSI\\.venv\\Lib\\site-packages\\numpy\\_core\\include\\numpy\\ufuncobject.h",
+            "min_max\\c_implementations\\maxValue_C_implementation.c",
+            "min_max\\c_implementations\\minValue_C_implementation.c"
         ],
         "include_dirs": [
+            "./amplitude",
             "C:\\Users\\Administrator\\Documents\\Trabalhos\\TCC-BSI\\.venv\\Lib\\site-packages\\numpy\\_core\\include"
         ],
         "language": "c",
@@ -1252,6 +1255,8 @@ static CYTHON_INLINE float __PYX_NAN() {
 #include "numpy/ndarraytypes.h"
 #include "numpy/arrayscalars.h"
 #include "numpy/ufuncobject.h"
+#include "../min_max/c_implementations/maxValue_C_implementation.c"
+#include "../min_max/c_implementations/minValue_C_implementation.c"
 #ifdef _OPENMP
 #include <omp.h>
 #endif /* _OPENMP */
@@ -2552,7 +2557,7 @@ int __pyx_module_is_main_amplitude = 0;
 static PyObject *__pyx_builtin_range;
 static PyObject *__pyx_builtin_ImportError;
 /* #### Code section: string_decls ### */
-static const char __pyx_k__5[] = "?";
+static const char __pyx_k__6[] = "?";
 static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_name[] = "__name__";
 static const char __pyx_k_test[] = "__test__";
@@ -2565,10 +2570,12 @@ static const char __pyx_k_asyncio_coroutines[] = "asyncio.coroutines";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_amplitude_amplitude_pyx[] = "amplitude\\amplitude.pyx";
 static const char __pyx_k_get_amplitude_py_wrapper[] = "get_amplitude_py_wrapper";
+static const char __pyx_k_get_amplitude_using_C_minMax[] = "get_amplitude_using_C_minMax";
 static const char __pyx_k_numpy__core_multiarray_failed_to[] = "numpy._core.multiarray failed to import";
 static const char __pyx_k_numpy__core_umath_failed_to_impo[] = "numpy._core.umath failed to import";
 /* #### Code section: decls ### */
 static PyObject *__pyx_pf_9amplitude_get_amplitude_py_wrapper(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_array); /* proto */
+static PyObject *__pyx_pf_9amplitude_2get_amplitude_using_C_minMax(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_array); /* proto */
 /* #### Code section: late_includes ### */
 /* #### Code section: module_state ### */
 typedef struct {
@@ -2635,13 +2642,14 @@ typedef struct {
   #if CYTHON_USE_MODULE_STATE
   #endif
   PyObject *__pyx_n_s_ImportError;
-  PyObject *__pyx_n_s__5;
+  PyObject *__pyx_n_s__6;
   PyObject *__pyx_n_s_amplitude;
   PyObject *__pyx_kp_s_amplitude_amplitude_pyx;
   PyObject *__pyx_n_s_array;
   PyObject *__pyx_n_s_asyncio_coroutines;
   PyObject *__pyx_n_s_cline_in_traceback;
   PyObject *__pyx_n_s_get_amplitude_py_wrapper;
+  PyObject *__pyx_n_s_get_amplitude_using_C_minMax;
   PyObject *__pyx_n_s_is_coroutine;
   PyObject *__pyx_n_s_main;
   PyObject *__pyx_n_s_name;
@@ -2653,6 +2661,7 @@ typedef struct {
   PyObject *__pyx_tuple__2;
   PyObject *__pyx_tuple__3;
   PyObject *__pyx_codeobj__4;
+  PyObject *__pyx_codeobj__5;
 } __pyx_mstate;
 
 #if CYTHON_USE_MODULE_STATE
@@ -2712,13 +2721,14 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_ptype_5numpy_character);
   Py_CLEAR(clear_module_state->__pyx_ptype_5numpy_ufunc);
   Py_CLEAR(clear_module_state->__pyx_n_s_ImportError);
-  Py_CLEAR(clear_module_state->__pyx_n_s__5);
+  Py_CLEAR(clear_module_state->__pyx_n_s__6);
   Py_CLEAR(clear_module_state->__pyx_n_s_amplitude);
   Py_CLEAR(clear_module_state->__pyx_kp_s_amplitude_amplitude_pyx);
   Py_CLEAR(clear_module_state->__pyx_n_s_array);
   Py_CLEAR(clear_module_state->__pyx_n_s_asyncio_coroutines);
   Py_CLEAR(clear_module_state->__pyx_n_s_cline_in_traceback);
   Py_CLEAR(clear_module_state->__pyx_n_s_get_amplitude_py_wrapper);
+  Py_CLEAR(clear_module_state->__pyx_n_s_get_amplitude_using_C_minMax);
   Py_CLEAR(clear_module_state->__pyx_n_s_is_coroutine);
   Py_CLEAR(clear_module_state->__pyx_n_s_main);
   Py_CLEAR(clear_module_state->__pyx_n_s_name);
@@ -2730,6 +2740,7 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_tuple__2);
   Py_CLEAR(clear_module_state->__pyx_tuple__3);
   Py_CLEAR(clear_module_state->__pyx_codeobj__4);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__5);
   return 0;
 }
 #endif
@@ -2767,13 +2778,14 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_ptype_5numpy_character);
   Py_VISIT(traverse_module_state->__pyx_ptype_5numpy_ufunc);
   Py_VISIT(traverse_module_state->__pyx_n_s_ImportError);
-  Py_VISIT(traverse_module_state->__pyx_n_s__5);
+  Py_VISIT(traverse_module_state->__pyx_n_s__6);
   Py_VISIT(traverse_module_state->__pyx_n_s_amplitude);
   Py_VISIT(traverse_module_state->__pyx_kp_s_amplitude_amplitude_pyx);
   Py_VISIT(traverse_module_state->__pyx_n_s_array);
   Py_VISIT(traverse_module_state->__pyx_n_s_asyncio_coroutines);
   Py_VISIT(traverse_module_state->__pyx_n_s_cline_in_traceback);
   Py_VISIT(traverse_module_state->__pyx_n_s_get_amplitude_py_wrapper);
+  Py_VISIT(traverse_module_state->__pyx_n_s_get_amplitude_using_C_minMax);
   Py_VISIT(traverse_module_state->__pyx_n_s_is_coroutine);
   Py_VISIT(traverse_module_state->__pyx_n_s_main);
   Py_VISIT(traverse_module_state->__pyx_n_s_name);
@@ -2785,6 +2797,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_tuple__2);
   Py_VISIT(traverse_module_state->__pyx_tuple__3);
   Py_VISIT(traverse_module_state->__pyx_codeobj__4);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__5);
   return 0;
 }
 #endif
@@ -2852,13 +2865,14 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #if CYTHON_USE_MODULE_STATE
 #endif
 #define __pyx_n_s_ImportError __pyx_mstate_global->__pyx_n_s_ImportError
-#define __pyx_n_s__5 __pyx_mstate_global->__pyx_n_s__5
+#define __pyx_n_s__6 __pyx_mstate_global->__pyx_n_s__6
 #define __pyx_n_s_amplitude __pyx_mstate_global->__pyx_n_s_amplitude
 #define __pyx_kp_s_amplitude_amplitude_pyx __pyx_mstate_global->__pyx_kp_s_amplitude_amplitude_pyx
 #define __pyx_n_s_array __pyx_mstate_global->__pyx_n_s_array
 #define __pyx_n_s_asyncio_coroutines __pyx_mstate_global->__pyx_n_s_asyncio_coroutines
 #define __pyx_n_s_cline_in_traceback __pyx_mstate_global->__pyx_n_s_cline_in_traceback
 #define __pyx_n_s_get_amplitude_py_wrapper __pyx_mstate_global->__pyx_n_s_get_amplitude_py_wrapper
+#define __pyx_n_s_get_amplitude_using_C_minMax __pyx_mstate_global->__pyx_n_s_get_amplitude_using_C_minMax
 #define __pyx_n_s_is_coroutine __pyx_mstate_global->__pyx_n_s_is_coroutine
 #define __pyx_n_s_main __pyx_mstate_global->__pyx_n_s_main
 #define __pyx_n_s_name __pyx_mstate_global->__pyx_n_s_name
@@ -2870,6 +2884,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_tuple__2 __pyx_mstate_global->__pyx_tuple__2
 #define __pyx_tuple__3 __pyx_mstate_global->__pyx_tuple__3
 #define __pyx_codeobj__4 __pyx_mstate_global->__pyx_codeobj__4
+#define __pyx_codeobj__5 __pyx_mstate_global->__pyx_codeobj__5
 /* #### Code section: module_code ### */
 
 /* "../../.venv/Lib/site-packages/numpy/__init__.cython-30.pxd":286
@@ -4562,7 +4577,7 @@ static CYTHON_INLINE NPY_DATETIMEUNIT __pyx_f_5numpy_get_datetime64_unit(PyObjec
   return __pyx_r;
 }
 
-/* "amplitude.pyx":15
+/* "amplitude.pyx":14
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cdef unsigned long get_amplitude_cython(unsigned long *data_ptr, Py_ssize_t array_size):             # <<<<<<<<<<<<<<
@@ -4580,7 +4595,7 @@ static unsigned long __pyx_f_9amplitude_get_amplitude_cython(unsigned long *__py
   Py_ssize_t __pyx_t_3;
   int __pyx_t_4;
 
-  /* "amplitude.pyx":17
+  /* "amplitude.pyx":16
  * cdef unsigned long get_amplitude_cython(unsigned long *data_ptr, Py_ssize_t array_size):
  *     cdef Py_ssize_t i
  *     cdef unsigned long min_value = data_ptr[0], max_value = data_ptr[0]             # <<<<<<<<<<<<<<
@@ -4590,7 +4605,7 @@ static unsigned long __pyx_f_9amplitude_get_amplitude_cython(unsigned long *__py
   __pyx_v_min_value = (__pyx_v_data_ptr[0]);
   __pyx_v_max_value = (__pyx_v_data_ptr[0]);
 
-  /* "amplitude.pyx":19
+  /* "amplitude.pyx":18
  *     cdef unsigned long min_value = data_ptr[0], max_value = data_ptr[0]
  * 
  *     for i in range(1, array_size):             # <<<<<<<<<<<<<<
@@ -4602,7 +4617,7 @@ static unsigned long __pyx_f_9amplitude_get_amplitude_cython(unsigned long *__py
   for (__pyx_t_3 = 1; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "amplitude.pyx":20
+    /* "amplitude.pyx":19
  * 
  *     for i in range(1, array_size):
  *         if data_ptr[i] < min_value:             # <<<<<<<<<<<<<<
@@ -4612,7 +4627,7 @@ static unsigned long __pyx_f_9amplitude_get_amplitude_cython(unsigned long *__py
     __pyx_t_4 = ((__pyx_v_data_ptr[__pyx_v_i]) < __pyx_v_min_value);
     if (__pyx_t_4) {
 
-      /* "amplitude.pyx":21
+      /* "amplitude.pyx":20
  *     for i in range(1, array_size):
  *         if data_ptr[i] < min_value:
  *             min_value = data_ptr[i]             # <<<<<<<<<<<<<<
@@ -4621,7 +4636,7 @@ static unsigned long __pyx_f_9amplitude_get_amplitude_cython(unsigned long *__py
  */
       __pyx_v_min_value = (__pyx_v_data_ptr[__pyx_v_i]);
 
-      /* "amplitude.pyx":20
+      /* "amplitude.pyx":19
  * 
  *     for i in range(1, array_size):
  *         if data_ptr[i] < min_value:             # <<<<<<<<<<<<<<
@@ -4631,7 +4646,7 @@ static unsigned long __pyx_f_9amplitude_get_amplitude_cython(unsigned long *__py
       goto __pyx_L5;
     }
 
-    /* "amplitude.pyx":22
+    /* "amplitude.pyx":21
  *         if data_ptr[i] < min_value:
  *             min_value = data_ptr[i]
  *         elif max_value < data_ptr[i]:             # <<<<<<<<<<<<<<
@@ -4641,7 +4656,7 @@ static unsigned long __pyx_f_9amplitude_get_amplitude_cython(unsigned long *__py
     __pyx_t_4 = (__pyx_v_max_value < (__pyx_v_data_ptr[__pyx_v_i]));
     if (__pyx_t_4) {
 
-      /* "amplitude.pyx":23
+      /* "amplitude.pyx":22
  *             min_value = data_ptr[i]
  *         elif max_value < data_ptr[i]:
  *             max_value = data_ptr[i]             # <<<<<<<<<<<<<<
@@ -4650,7 +4665,7 @@ static unsigned long __pyx_f_9amplitude_get_amplitude_cython(unsigned long *__py
  */
       __pyx_v_max_value = (__pyx_v_data_ptr[__pyx_v_i]);
 
-      /* "amplitude.pyx":22
+      /* "amplitude.pyx":21
  *         if data_ptr[i] < min_value:
  *             min_value = data_ptr[i]
  *         elif max_value < data_ptr[i]:             # <<<<<<<<<<<<<<
@@ -4661,7 +4676,7 @@ static unsigned long __pyx_f_9amplitude_get_amplitude_cython(unsigned long *__py
     __pyx_L5:;
   }
 
-  /* "amplitude.pyx":25
+  /* "amplitude.pyx":24
  *             max_value = data_ptr[i]
  * 
  *     return max_value - min_value             # <<<<<<<<<<<<<<
@@ -4671,7 +4686,7 @@ static unsigned long __pyx_f_9amplitude_get_amplitude_cython(unsigned long *__py
   __pyx_r = (__pyx_v_max_value - __pyx_v_min_value);
   goto __pyx_L0;
 
-  /* "amplitude.pyx":15
+  /* "amplitude.pyx":14
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cdef unsigned long get_amplitude_cython(unsigned long *data_ptr, Py_ssize_t array_size):             # <<<<<<<<<<<<<<
@@ -4684,11 +4699,12 @@ static unsigned long __pyx_f_9amplitude_get_amplitude_cython(unsigned long *__py
   return __pyx_r;
 }
 
-/* "amplitude.pyx":28
+/* "amplitude.pyx":27
  * 
  * 
  * def get_amplitude_py_wrapper(np.ndarray[unsigned long, ndim=1] array):             # <<<<<<<<<<<<<<
  *     return get_amplitude_cython(<unsigned long *> array.data, array.size)
+ * 
  */
 
 /* Python wrapper */
@@ -4744,12 +4760,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 28, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 27, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "get_amplitude_py_wrapper") < 0)) __PYX_ERR(0, 28, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "get_amplitude_py_wrapper") < 0)) __PYX_ERR(0, 27, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -4760,7 +4776,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("get_amplitude_py_wrapper", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 28, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("get_amplitude_py_wrapper", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 27, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -4774,7 +4790,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_array), __pyx_ptype_5numpy_ndarray, 1, "array", 0))) __PYX_ERR(0, 28, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_array), __pyx_ptype_5numpy_ndarray, 1, "array", 0))) __PYX_ERR(0, 27, __pyx_L1_error)
   __pyx_r = __pyx_pf_9amplitude_get_amplitude_py_wrapper(__pyx_self, __pyx_v_array);
 
   /* function exit code */
@@ -4809,28 +4825,31 @@ static PyObject *__pyx_pf_9amplitude_get_amplitude_py_wrapper(CYTHON_UNUSED PyOb
   __pyx_pybuffernd_array.rcbuffer = &__pyx_pybuffer_array;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_array.rcbuffer->pybuffer, (PyObject*)__pyx_v_array, &__Pyx_TypeInfo_unsigned_long, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 28, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_array.rcbuffer->pybuffer, (PyObject*)__pyx_v_array, &__Pyx_TypeInfo_unsigned_long, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 27, __pyx_L1_error)
   }
   __pyx_pybuffernd_array.diminfo[0].strides = __pyx_pybuffernd_array.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_array.diminfo[0].shape = __pyx_pybuffernd_array.rcbuffer->pybuffer.shape[0];
 
-  /* "amplitude.pyx":29
+  /* "amplitude.pyx":28
  * 
  * def get_amplitude_py_wrapper(np.ndarray[unsigned long, ndim=1] array):
  *     return get_amplitude_cython(<unsigned long *> array.data, array.size)             # <<<<<<<<<<<<<<
+ * 
+ * def get_amplitude_using_C_minMax(np.ndarray[unsigned long, ndim=1] array):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_9amplitude_get_amplitude_cython(((unsigned long *)__pyx_f_5numpy_7ndarray_4data_data(((PyArrayObject *)__pyx_v_array))), __pyx_f_5numpy_7ndarray_4size_size(((PyArrayObject *)__pyx_v_array))); if (unlikely(__pyx_t_1 == ((unsigned long)-1) && PyErr_Occurred())) __PYX_ERR(0, 29, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyInt_From_unsigned_long(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 29, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_9amplitude_get_amplitude_cython(((unsigned long *)__pyx_f_5numpy_7ndarray_4data_data(((PyArrayObject *)__pyx_v_array))), __pyx_f_5numpy_7ndarray_4size_size(((PyArrayObject *)__pyx_v_array))); if (unlikely(__pyx_t_1 == ((unsigned long)-1) && PyErr_Occurred())) __PYX_ERR(0, 28, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_unsigned_long(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 28, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "amplitude.pyx":28
+  /* "amplitude.pyx":27
  * 
  * 
  * def get_amplitude_py_wrapper(np.ndarray[unsigned long, ndim=1] array):             # <<<<<<<<<<<<<<
  *     return get_amplitude_cython(<unsigned long *> array.data, array.size)
+ * 
  */
 
   /* function exit code */
@@ -4843,6 +4862,173 @@ static PyObject *__pyx_pf_9amplitude_get_amplitude_py_wrapper(CYTHON_UNUSED PyOb
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_array.rcbuffer->pybuffer);
   __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
   __Pyx_AddTraceback("amplitude.get_amplitude_py_wrapper", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  goto __pyx_L2;
+  __pyx_L0:;
+  __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_array.rcbuffer->pybuffer);
+  __pyx_L2:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "amplitude.pyx":30
+ *     return get_amplitude_cython(<unsigned long *> array.data, array.size)
+ * 
+ * def get_amplitude_using_C_minMax(np.ndarray[unsigned long, ndim=1] array):             # <<<<<<<<<<<<<<
+ *     return get_max_value_using_C(<unsigned long *> array.data, array.size) - get_min_value_using_C(<unsigned long *> array.data, array.size)
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_9amplitude_3get_amplitude_using_C_minMax(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+); /*proto*/
+static PyMethodDef __pyx_mdef_9amplitude_3get_amplitude_using_C_minMax = {"get_amplitude_using_C_minMax", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9amplitude_3get_amplitude_using_C_minMax, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_9amplitude_3get_amplitude_using_C_minMax(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+) {
+  PyArrayObject *__pyx_v_array = 0;
+  #if !CYTHON_METH_FASTCALL
+  CYTHON_UNUSED Py_ssize_t __pyx_nargs;
+  #endif
+  CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
+  PyObject* values[1] = {0};
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("get_amplitude_using_C_minMax (wrapper)", 0);
+  #if !CYTHON_METH_FASTCALL
+  #if CYTHON_ASSUME_SAFE_MACROS
+  __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
+  #else
+  __pyx_nargs = PyTuple_Size(__pyx_args); if (unlikely(__pyx_nargs < 0)) return NULL;
+  #endif
+  #endif
+  __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
+  {
+    PyObject **__pyx_pyargnames[] = {&__pyx_n_s_array,0};
+    if (__pyx_kwds) {
+      Py_ssize_t kw_args;
+      switch (__pyx_nargs) {
+        case  1: values[0] = __Pyx_Arg_FASTCALL(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = __Pyx_NumKwargs_FASTCALL(__pyx_kwds);
+      switch (__pyx_nargs) {
+        case  0:
+        if (likely((values[0] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_array)) != 0)) {
+          (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
+          kw_args--;
+        }
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 30, __pyx_L3_error)
+        else goto __pyx_L5_argtuple_error;
+      }
+      if (unlikely(kw_args > 0)) {
+        const Py_ssize_t kwd_pos_args = __pyx_nargs;
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "get_amplitude_using_C_minMax") < 0)) __PYX_ERR(0, 30, __pyx_L3_error)
+      }
+    } else if (unlikely(__pyx_nargs != 1)) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = __Pyx_Arg_FASTCALL(__pyx_args, 0);
+    }
+    __pyx_v_array = ((PyArrayObject *)values[0]);
+  }
+  goto __pyx_L6_skip;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("get_amplitude_using_C_minMax", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 30, __pyx_L3_error)
+  __pyx_L6_skip:;
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L3_error:;
+  {
+    Py_ssize_t __pyx_temp;
+    for (__pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      __Pyx_Arg_XDECREF_FASTCALL(values[__pyx_temp]);
+    }
+  }
+  __Pyx_AddTraceback("amplitude.get_amplitude_using_C_minMax", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_array), __pyx_ptype_5numpy_ndarray, 1, "array", 0))) __PYX_ERR(0, 30, __pyx_L1_error)
+  __pyx_r = __pyx_pf_9amplitude_2get_amplitude_using_C_minMax(__pyx_self, __pyx_v_array);
+
+  /* function exit code */
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __pyx_r = NULL;
+  __pyx_L0:;
+  {
+    Py_ssize_t __pyx_temp;
+    for (__pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      __Pyx_Arg_XDECREF_FASTCALL(values[__pyx_temp]);
+    }
+  }
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_9amplitude_2get_amplitude_using_C_minMax(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_array) {
+  __Pyx_LocalBuf_ND __pyx_pybuffernd_array;
+  __Pyx_Buffer __pyx_pybuffer_array;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("get_amplitude_using_C_minMax", 1);
+  __pyx_pybuffer_array.pybuffer.buf = NULL;
+  __pyx_pybuffer_array.refcount = 0;
+  __pyx_pybuffernd_array.data = NULL;
+  __pyx_pybuffernd_array.rcbuffer = &__pyx_pybuffer_array;
+  {
+    __Pyx_BufFmt_StackElem __pyx_stack[1];
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_array.rcbuffer->pybuffer, (PyObject*)__pyx_v_array, &__Pyx_TypeInfo_unsigned_long, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 30, __pyx_L1_error)
+  }
+  __pyx_pybuffernd_array.diminfo[0].strides = __pyx_pybuffernd_array.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_array.diminfo[0].shape = __pyx_pybuffernd_array.rcbuffer->pybuffer.shape[0];
+
+  /* "amplitude.pyx":31
+ * 
+ * def get_amplitude_using_C_minMax(np.ndarray[unsigned long, ndim=1] array):
+ *     return get_max_value_using_C(<unsigned long *> array.data, array.size) - get_min_value_using_C(<unsigned long *> array.data, array.size)             # <<<<<<<<<<<<<<
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __Pyx_PyInt_From_unsigned_long((get_max_value_using_C(((unsigned long *)__pyx_f_5numpy_7ndarray_4data_data(((PyArrayObject *)__pyx_v_array))), __pyx_f_5numpy_7ndarray_4size_size(((PyArrayObject *)__pyx_v_array))) - get_min_value_using_C(((unsigned long *)__pyx_f_5numpy_7ndarray_4data_data(((PyArrayObject *)__pyx_v_array))), __pyx_f_5numpy_7ndarray_4size_size(((PyArrayObject *)__pyx_v_array))))); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 31, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* "amplitude.pyx":30
+ *     return get_amplitude_cython(<unsigned long *> array.data, array.size)
+ * 
+ * def get_amplitude_using_C_minMax(np.ndarray[unsigned long, ndim=1] array):             # <<<<<<<<<<<<<<
+ *     return get_max_value_using_C(<unsigned long *> array.data, array.size) - get_min_value_using_C(<unsigned long *> array.data, array.size)
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  { PyObject *__pyx_type, *__pyx_value, *__pyx_tb;
+    __Pyx_PyThreadState_declare
+    __Pyx_PyThreadState_assign
+    __Pyx_ErrFetch(&__pyx_type, &__pyx_value, &__pyx_tb);
+    __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_array.rcbuffer->pybuffer);
+  __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
+  __Pyx_AddTraceback("amplitude.get_amplitude_using_C_minMax", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   goto __pyx_L2;
   __pyx_L0:;
@@ -4870,13 +5056,14 @@ static PyMethodDef __pyx_methods[] = {
 static int __Pyx_CreateStringTabAndInitStrings(void) {
   __Pyx_StringTabEntry __pyx_string_tab[] = {
     {&__pyx_n_s_ImportError, __pyx_k_ImportError, sizeof(__pyx_k_ImportError), 0, 0, 1, 1},
-    {&__pyx_n_s__5, __pyx_k__5, sizeof(__pyx_k__5), 0, 0, 1, 1},
+    {&__pyx_n_s__6, __pyx_k__6, sizeof(__pyx_k__6), 0, 0, 1, 1},
     {&__pyx_n_s_amplitude, __pyx_k_amplitude, sizeof(__pyx_k_amplitude), 0, 0, 1, 1},
     {&__pyx_kp_s_amplitude_amplitude_pyx, __pyx_k_amplitude_amplitude_pyx, sizeof(__pyx_k_amplitude_amplitude_pyx), 0, 0, 1, 0},
     {&__pyx_n_s_array, __pyx_k_array, sizeof(__pyx_k_array), 0, 0, 1, 1},
     {&__pyx_n_s_asyncio_coroutines, __pyx_k_asyncio_coroutines, sizeof(__pyx_k_asyncio_coroutines), 0, 0, 1, 1},
     {&__pyx_n_s_cline_in_traceback, __pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 0, 1, 1},
     {&__pyx_n_s_get_amplitude_py_wrapper, __pyx_k_get_amplitude_py_wrapper, sizeof(__pyx_k_get_amplitude_py_wrapper), 0, 0, 1, 1},
+    {&__pyx_n_s_get_amplitude_using_C_minMax, __pyx_k_get_amplitude_using_C_minMax, sizeof(__pyx_k_get_amplitude_using_C_minMax), 0, 0, 1, 1},
     {&__pyx_n_s_is_coroutine, __pyx_k_is_coroutine, sizeof(__pyx_k_is_coroutine), 0, 0, 1, 1},
     {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
     {&__pyx_n_s_name, __pyx_k_name, sizeof(__pyx_k_name), 0, 0, 1, 1},
@@ -4890,7 +5077,7 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
 }
 /* #### Code section: cached_builtins ### */
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 19, __pyx_L1_error)
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 18, __pyx_L1_error)
   __pyx_builtin_ImportError = __Pyx_GetBuiltinName(__pyx_n_s_ImportError); if (!__pyx_builtin_ImportError) __PYX_ERR(1, 1026, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
@@ -4924,16 +5111,25 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__2);
   __Pyx_GIVEREF(__pyx_tuple__2);
 
-  /* "amplitude.pyx":28
+  /* "amplitude.pyx":27
  * 
  * 
  * def get_amplitude_py_wrapper(np.ndarray[unsigned long, ndim=1] array):             # <<<<<<<<<<<<<<
  *     return get_amplitude_cython(<unsigned long *> array.data, array.size)
+ * 
  */
-  __pyx_tuple__3 = PyTuple_Pack(1, __pyx_n_s_array); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 28, __pyx_L1_error)
+  __pyx_tuple__3 = PyTuple_Pack(1, __pyx_n_s_array); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 27, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__3);
   __Pyx_GIVEREF(__pyx_tuple__3);
-  __pyx_codeobj__4 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__3, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_amplitude_amplitude_pyx, __pyx_n_s_get_amplitude_py_wrapper, 28, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__4)) __PYX_ERR(0, 28, __pyx_L1_error)
+  __pyx_codeobj__4 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__3, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_amplitude_amplitude_pyx, __pyx_n_s_get_amplitude_py_wrapper, 27, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__4)) __PYX_ERR(0, 27, __pyx_L1_error)
+
+  /* "amplitude.pyx":30
+ *     return get_amplitude_cython(<unsigned long *> array.data, array.size)
+ * 
+ * def get_amplitude_using_C_minMax(np.ndarray[unsigned long, ndim=1] array):             # <<<<<<<<<<<<<<
+ *     return get_max_value_using_C(<unsigned long *> array.data, array.size) - get_min_value_using_C(<unsigned long *> array.data, array.size)
+ */
+  __pyx_codeobj__5 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__3, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_amplitude_amplitude_pyx, __pyx_n_s_get_amplitude_using_C_minMax, 30, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__5)) __PYX_ERR(0, 30, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -5356,15 +5552,27 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "amplitude.pyx":28
+  /* "amplitude.pyx":27
  * 
  * 
  * def get_amplitude_py_wrapper(np.ndarray[unsigned long, ndim=1] array):             # <<<<<<<<<<<<<<
  *     return get_amplitude_cython(<unsigned long *> array.data, array.size)
+ * 
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_9amplitude_1get_amplitude_py_wrapper, 0, __pyx_n_s_get_amplitude_py_wrapper, NULL, __pyx_n_s_amplitude, __pyx_d, ((PyObject *)__pyx_codeobj__4)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 28, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_9amplitude_1get_amplitude_py_wrapper, 0, __pyx_n_s_get_amplitude_py_wrapper, NULL, __pyx_n_s_amplitude, __pyx_d, ((PyObject *)__pyx_codeobj__4)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 27, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_get_amplitude_py_wrapper, __pyx_t_2) < 0) __PYX_ERR(0, 28, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_get_amplitude_py_wrapper, __pyx_t_2) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+  /* "amplitude.pyx":30
+ *     return get_amplitude_cython(<unsigned long *> array.data, array.size)
+ * 
+ * def get_amplitude_using_C_minMax(np.ndarray[unsigned long, ndim=1] array):             # <<<<<<<<<<<<<<
+ *     return get_max_value_using_C(<unsigned long *> array.data, array.size) - get_min_value_using_C(<unsigned long *> array.data, array.size)
+ */
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_9amplitude_3get_amplitude_using_C_minMax, 0, __pyx_n_s_get_amplitude_using_C_minMax, NULL, __pyx_n_s_amplitude, __pyx_d, ((PyObject *)__pyx_codeobj__5)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 30, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_get_amplitude_using_C_minMax, __pyx_t_2) < 0) __PYX_ERR(0, 30, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "amplitude.pyx":1
@@ -9227,7 +9435,7 @@ __Pyx_PyType_GetName(PyTypeObject* tp)
     if (unlikely(name == NULL) || unlikely(!PyUnicode_Check(name))) {
         PyErr_Clear();
         Py_XDECREF(name);
-        name = __Pyx_NewRef(__pyx_n_s__5);
+        name = __Pyx_NewRef(__pyx_n_s__6);
     }
     return name;
 }
