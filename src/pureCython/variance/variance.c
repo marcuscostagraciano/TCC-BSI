@@ -2536,7 +2536,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy_7ndarray_4data_data(PyArrayObject *__p
 /* Module declarations from "numpy" */
 
 /* Module declarations from "variance" */
-static long double __pyx_f_8variance_get_variance(unsigned long *, Py_ssize_t, short); /*proto*/
+static long double __pyx_f_8variance_get_variance_cython(unsigned long *, Py_ssize_t, short); /*proto*/
 /* #### Code section: typeinfo ### */
 static __Pyx_TypeInfo __Pyx_TypeInfo_unsigned_long = { "unsigned long", NULL, sizeof(unsigned long), { 0 }, 0, __PYX_IS_UNSIGNED(unsigned long) ? 'U' : 'I', __PYX_IS_UNSIGNED(unsigned long), 0 };
 /* #### Code section: before_global_var ### */
@@ -2558,15 +2558,15 @@ static const char __pyx_k_array[] = "array";
 static const char __pyx_k_range[] = "range";
 static const char __pyx_k_variance[] = "variance";
 static const char __pyx_k_ImportError[] = "ImportError";
+static const char __pyx_k_get_variance[] = "get_variance";
 static const char __pyx_k_is_coroutine[] = "_is_coroutine";
 static const char __pyx_k_asyncio_coroutines[] = "asyncio.coroutines";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_variance_variance_pyx[] = "variance\\variance.pyx";
-static const char __pyx_k_get_variance_py_wrapper[] = "get_variance_py_wrapper";
 static const char __pyx_k_numpy__core_multiarray_failed_to[] = "numpy._core.multiarray failed to import";
 static const char __pyx_k_numpy__core_umath_failed_to_impo[] = "numpy._core.umath failed to import";
 /* #### Code section: decls ### */
-static PyObject *__pyx_pf_8variance_get_variance_py_wrapper(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_array, int __pyx_v_ddof); /* proto */
+static PyObject *__pyx_pf_8variance_get_variance(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_array, int __pyx_v_ddof); /* proto */
 /* #### Code section: late_includes ### */
 /* #### Code section: module_state ### */
 typedef struct {
@@ -2638,7 +2638,7 @@ typedef struct {
   PyObject *__pyx_n_s_asyncio_coroutines;
   PyObject *__pyx_n_s_cline_in_traceback;
   PyObject *__pyx_n_s_ddof;
-  PyObject *__pyx_n_s_get_variance_py_wrapper;
+  PyObject *__pyx_n_s_get_variance;
   PyObject *__pyx_n_s_is_coroutine;
   PyObject *__pyx_n_s_main;
   PyObject *__pyx_n_s_name;
@@ -2716,7 +2716,7 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_asyncio_coroutines);
   Py_CLEAR(clear_module_state->__pyx_n_s_cline_in_traceback);
   Py_CLEAR(clear_module_state->__pyx_n_s_ddof);
-  Py_CLEAR(clear_module_state->__pyx_n_s_get_variance_py_wrapper);
+  Py_CLEAR(clear_module_state->__pyx_n_s_get_variance);
   Py_CLEAR(clear_module_state->__pyx_n_s_is_coroutine);
   Py_CLEAR(clear_module_state->__pyx_n_s_main);
   Py_CLEAR(clear_module_state->__pyx_n_s_name);
@@ -2772,7 +2772,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_asyncio_coroutines);
   Py_VISIT(traverse_module_state->__pyx_n_s_cline_in_traceback);
   Py_VISIT(traverse_module_state->__pyx_n_s_ddof);
-  Py_VISIT(traverse_module_state->__pyx_n_s_get_variance_py_wrapper);
+  Py_VISIT(traverse_module_state->__pyx_n_s_get_variance);
   Py_VISIT(traverse_module_state->__pyx_n_s_is_coroutine);
   Py_VISIT(traverse_module_state->__pyx_n_s_main);
   Py_VISIT(traverse_module_state->__pyx_n_s_name);
@@ -2858,7 +2858,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_asyncio_coroutines __pyx_mstate_global->__pyx_n_s_asyncio_coroutines
 #define __pyx_n_s_cline_in_traceback __pyx_mstate_global->__pyx_n_s_cline_in_traceback
 #define __pyx_n_s_ddof __pyx_mstate_global->__pyx_n_s_ddof
-#define __pyx_n_s_get_variance_py_wrapper __pyx_mstate_global->__pyx_n_s_get_variance_py_wrapper
+#define __pyx_n_s_get_variance __pyx_mstate_global->__pyx_n_s_get_variance
 #define __pyx_n_s_is_coroutine __pyx_mstate_global->__pyx_n_s_is_coroutine
 #define __pyx_n_s_main __pyx_mstate_global->__pyx_n_s_main
 #define __pyx_n_s_name __pyx_mstate_global->__pyx_n_s_name
@@ -4567,12 +4567,12 @@ static CYTHON_INLINE NPY_DATETIMEUNIT __pyx_f_5numpy_get_datetime64_unit(PyObjec
 /* "variance.pyx":8
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
- * cdef long double get_variance(             # <<<<<<<<<<<<<<
+ * cdef long double get_variance_cython(             # <<<<<<<<<<<<<<
  *     unsigned long *data_ptr, Py_ssize_t array_size, short ddof
  *     ):
  */
 
-static long double __pyx_f_8variance_get_variance(unsigned long *__pyx_v_data_ptr, Py_ssize_t __pyx_v_array_size, short __pyx_v_ddof) {
+static long double __pyx_f_8variance_get_variance_cython(unsigned long *__pyx_v_data_ptr, Py_ssize_t __pyx_v_array_size, short __pyx_v_ddof) {
   Py_ssize_t __pyx_v_i;
   long double __pyx_v_mean;
   long double __pyx_v_array_sum;
@@ -4670,14 +4670,14 @@ static long double __pyx_f_8variance_get_variance(unsigned long *__pyx_v_data_pt
   /* "variance.pyx":8
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
- * cdef long double get_variance(             # <<<<<<<<<<<<<<
+ * cdef long double get_variance_cython(             # <<<<<<<<<<<<<<
  *     unsigned long *data_ptr, Py_ssize_t array_size, short ddof
  *     ):
  */
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("variance.get_variance", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("variance.get_variance_cython", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
   return __pyx_r;
@@ -4686,21 +4686,21 @@ static long double __pyx_f_8variance_get_variance(unsigned long *__pyx_v_data_pt
 /* "variance.pyx":23
  * 
  * 
- * def get_variance_py_wrapper(np.ndarray[unsigned long, ndim=1] array, bint ddof=0):             # <<<<<<<<<<<<<<
+ * def get_variance(np.ndarray[unsigned long, ndim=1] array, bint ddof=0):             # <<<<<<<<<<<<<<
  *     # 'ddof' comes from: https://numpy.org/doc/stable/reference/generated/numpy.var.html
- *     return get_variance(<unsigned long *> array.data, array.size, ddof)
+ *     return get_variance_cython(<unsigned long *> array.data, array.size, ddof)
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_8variance_1get_variance_py_wrapper(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_8variance_1get_variance(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_8variance_1get_variance_py_wrapper = {"get_variance_py_wrapper", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_8variance_1get_variance_py_wrapper, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_8variance_1get_variance_py_wrapper(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_8variance_1get_variance = {"get_variance", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_8variance_1get_variance, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_8variance_1get_variance(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -4719,7 +4719,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   int __pyx_clineno = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("get_variance_py_wrapper (wrapper)", 0);
+  __Pyx_RefNannySetupContext("get_variance (wrapper)", 0);
   #if !CYTHON_METH_FASTCALL
   #if CYTHON_ASSUME_SAFE_MACROS
   __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
@@ -4759,7 +4759,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "get_variance_py_wrapper") < 0)) __PYX_ERR(0, 23, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "get_variance") < 0)) __PYX_ERR(0, 23, __pyx_L3_error)
       }
     } else {
       switch (__pyx_nargs) {
@@ -4779,7 +4779,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("get_variance_py_wrapper", 0, 1, 2, __pyx_nargs); __PYX_ERR(0, 23, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("get_variance", 0, 1, 2, __pyx_nargs); __PYX_ERR(0, 23, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -4789,12 +4789,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       __Pyx_Arg_XDECREF_FASTCALL(values[__pyx_temp]);
     }
   }
-  __Pyx_AddTraceback("variance.get_variance_py_wrapper", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("variance.get_variance", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_array), __pyx_ptype_5numpy_ndarray, 1, "array", 0))) __PYX_ERR(0, 23, __pyx_L1_error)
-  __pyx_r = __pyx_pf_8variance_get_variance_py_wrapper(__pyx_self, __pyx_v_array, __pyx_v_ddof);
+  __pyx_r = __pyx_pf_8variance_get_variance(__pyx_self, __pyx_v_array, __pyx_v_ddof);
 
   /* function exit code */
   goto __pyx_L0;
@@ -4811,7 +4811,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_8variance_get_variance_py_wrapper(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_array, int __pyx_v_ddof) {
+static PyObject *__pyx_pf_8variance_get_variance(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_array, int __pyx_v_ddof) {
   __Pyx_LocalBuf_ND __pyx_pybuffernd_array;
   __Pyx_Buffer __pyx_pybuffer_array;
   PyObject *__pyx_r = NULL;
@@ -4821,7 +4821,7 @@ static PyObject *__pyx_pf_8variance_get_variance_py_wrapper(CYTHON_UNUSED PyObje
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("get_variance_py_wrapper", 1);
+  __Pyx_RefNannySetupContext("get_variance", 1);
   __pyx_pybuffer_array.pybuffer.buf = NULL;
   __pyx_pybuffer_array.refcount = 0;
   __pyx_pybuffernd_array.data = NULL;
@@ -4833,12 +4833,12 @@ static PyObject *__pyx_pf_8variance_get_variance_py_wrapper(CYTHON_UNUSED PyObje
   __pyx_pybuffernd_array.diminfo[0].strides = __pyx_pybuffernd_array.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_array.diminfo[0].shape = __pyx_pybuffernd_array.rcbuffer->pybuffer.shape[0];
 
   /* "variance.pyx":25
- * def get_variance_py_wrapper(np.ndarray[unsigned long, ndim=1] array, bint ddof=0):
+ * def get_variance(np.ndarray[unsigned long, ndim=1] array, bint ddof=0):
  *     # 'ddof' comes from: https://numpy.org/doc/stable/reference/generated/numpy.var.html
- *     return get_variance(<unsigned long *> array.data, array.size, ddof)             # <<<<<<<<<<<<<<
+ *     return get_variance_cython(<unsigned long *> array.data, array.size, ddof)             # <<<<<<<<<<<<<<
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_8variance_get_variance(((unsigned long *)__pyx_f_5numpy_7ndarray_4data_data(((PyArrayObject *)__pyx_v_array))), __pyx_f_5numpy_7ndarray_4size_size(((PyArrayObject *)__pyx_v_array)), __pyx_v_ddof); if (unlikely(__pyx_t_1 == ((long double)-1) && PyErr_Occurred())) __PYX_ERR(0, 25, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_8variance_get_variance_cython(((unsigned long *)__pyx_f_5numpy_7ndarray_4data_data(((PyArrayObject *)__pyx_v_array))), __pyx_f_5numpy_7ndarray_4size_size(((PyArrayObject *)__pyx_v_array)), __pyx_v_ddof); if (unlikely(__pyx_t_1 == ((long double)-1) && PyErr_Occurred())) __PYX_ERR(0, 25, __pyx_L1_error)
   __pyx_t_2 = PyFloat_FromDouble(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 25, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
@@ -4848,9 +4848,9 @@ static PyObject *__pyx_pf_8variance_get_variance_py_wrapper(CYTHON_UNUSED PyObje
   /* "variance.pyx":23
  * 
  * 
- * def get_variance_py_wrapper(np.ndarray[unsigned long, ndim=1] array, bint ddof=0):             # <<<<<<<<<<<<<<
+ * def get_variance(np.ndarray[unsigned long, ndim=1] array, bint ddof=0):             # <<<<<<<<<<<<<<
  *     # 'ddof' comes from: https://numpy.org/doc/stable/reference/generated/numpy.var.html
- *     return get_variance(<unsigned long *> array.data, array.size, ddof)
+ *     return get_variance_cython(<unsigned long *> array.data, array.size, ddof)
  */
 
   /* function exit code */
@@ -4862,7 +4862,7 @@ static PyObject *__pyx_pf_8variance_get_variance_py_wrapper(CYTHON_UNUSED PyObje
     __Pyx_ErrFetch(&__pyx_type, &__pyx_value, &__pyx_tb);
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_array.rcbuffer->pybuffer);
   __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
-  __Pyx_AddTraceback("variance.get_variance_py_wrapper", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("variance.get_variance", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   goto __pyx_L2;
   __pyx_L0:;
@@ -4895,7 +4895,7 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_asyncio_coroutines, __pyx_k_asyncio_coroutines, sizeof(__pyx_k_asyncio_coroutines), 0, 0, 1, 1},
     {&__pyx_n_s_cline_in_traceback, __pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 0, 1, 1},
     {&__pyx_n_s_ddof, __pyx_k_ddof, sizeof(__pyx_k_ddof), 0, 0, 1, 1},
-    {&__pyx_n_s_get_variance_py_wrapper, __pyx_k_get_variance_py_wrapper, sizeof(__pyx_k_get_variance_py_wrapper), 0, 0, 1, 1},
+    {&__pyx_n_s_get_variance, __pyx_k_get_variance, sizeof(__pyx_k_get_variance), 0, 0, 1, 1},
     {&__pyx_n_s_is_coroutine, __pyx_k_is_coroutine, sizeof(__pyx_k_is_coroutine), 0, 0, 1, 1},
     {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
     {&__pyx_n_s_name, __pyx_k_name, sizeof(__pyx_k_name), 0, 0, 1, 1},
@@ -4948,14 +4948,14 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   /* "variance.pyx":23
  * 
  * 
- * def get_variance_py_wrapper(np.ndarray[unsigned long, ndim=1] array, bint ddof=0):             # <<<<<<<<<<<<<<
+ * def get_variance(np.ndarray[unsigned long, ndim=1] array, bint ddof=0):             # <<<<<<<<<<<<<<
  *     # 'ddof' comes from: https://numpy.org/doc/stable/reference/generated/numpy.var.html
- *     return get_variance(<unsigned long *> array.data, array.size, ddof)
+ *     return get_variance_cython(<unsigned long *> array.data, array.size, ddof)
  */
   __pyx_tuple__3 = PyTuple_Pack(2, __pyx_n_s_array, __pyx_n_s_ddof); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__3);
   __Pyx_GIVEREF(__pyx_tuple__3);
-  __pyx_codeobj__4 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__3, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_variance_variance_pyx, __pyx_n_s_get_variance_py_wrapper, 23, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__4)) __PYX_ERR(0, 23, __pyx_L1_error)
+  __pyx_codeobj__4 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__3, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_variance_variance_pyx, __pyx_n_s_get_variance, 23, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__4)) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -5382,9 +5382,9 @@ if (!__Pyx_RefNanny) {
   /* "variance.pyx":23
  * 
  * 
- * def get_variance_py_wrapper(np.ndarray[unsigned long, ndim=1] array, bint ddof=0):             # <<<<<<<<<<<<<<
+ * def get_variance(np.ndarray[unsigned long, ndim=1] array, bint ddof=0):             # <<<<<<<<<<<<<<
  *     # 'ddof' comes from: https://numpy.org/doc/stable/reference/generated/numpy.var.html
- *     return get_variance(<unsigned long *> array.data, array.size, ddof)
+ *     return get_variance_cython(<unsigned long *> array.data, array.size, ddof)
  */
   __pyx_t_2 = __Pyx_PyBool_FromLong(((int)0)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -5393,11 +5393,11 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_t_2);
   if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_2)) __PYX_ERR(0, 23, __pyx_L1_error);
   __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_8variance_1get_variance_py_wrapper, 0, __pyx_n_s_get_variance_py_wrapper, NULL, __pyx_n_s_variance, __pyx_d, ((PyObject *)__pyx_codeobj__4)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 23, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_8variance_1get_variance, 0, __pyx_n_s_get_variance, NULL, __pyx_n_s_variance, __pyx_d, ((PyObject *)__pyx_codeobj__4)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_2, __pyx_t_3);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_get_variance_py_wrapper, __pyx_t_2) < 0) __PYX_ERR(0, 23, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_get_variance, __pyx_t_2) < 0) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "variance.pyx":1

@@ -14,5 +14,5 @@ cdef long double get_mean_value_cython(unsigned long *data_ptr, Py_ssize_t array
     
     return sum_array_values / array_size
 
-def get_mean_value_py_wrapper(np.ndarray[unsigned long, ndim=1] array):
+def get_mean(np.ndarray[unsigned long, ndim=1] array):
     return get_mean_value_cython(<unsigned long *> array.data, array.size)

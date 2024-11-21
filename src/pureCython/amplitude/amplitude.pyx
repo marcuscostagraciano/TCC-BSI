@@ -24,7 +24,7 @@ cdef unsigned long get_amplitude_cython(unsigned long *data_ptr, Py_ssize_t arra
     return max_value - min_value
 
 
-def get_amplitude_py_wrapper(np.ndarray[unsigned long, ndim=1] array):
+def get_amplitude(np.ndarray[unsigned long, ndim=1] array):
     return get_amplitude_cython(<unsigned long *> array.data, array.size)
 
 def get_amplitude_using_C_minMax(np.ndarray[unsigned long, ndim=1] array):

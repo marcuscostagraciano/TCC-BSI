@@ -33,20 +33,22 @@ cdef long double get_min(unsigned long *data_ptr, Py_ssize_t array_size):
             min = data_ptr[i]
     return min
 
-def get_max_py_wrapper(np.ndarray[unsigned long, ndim=1] array):
+def get_max_value(np.ndarray[unsigned long, ndim=1] array):
     return get_max(<unsigned long *> array.data, array.size)
 
-def get_max_using_numpy(np.ndarray[unsigned long, ndim=1] array):
-    return np_max(array)
+def get_min_value(np.ndarray[unsigned long, ndim=1] array):
+    return get_min(<unsigned long *> array.data, array.size)
+
 
 def get_max_using_c(np.ndarray[unsigned long, ndim=1] array):
     return get_max_value_using_C(<unsigned long *> array.data, array.size)
 
-def get_min_py_wrapper(np.ndarray[unsigned long, ndim=1] array):
-    return get_min(<unsigned long *> array.data, array.size)
+def get_min_using_c(np.ndarray[unsigned long, ndim=1] array):
+    return get_min_value_using_C(<unsigned long *> array.data, array.size)
+
+
+def get_max_using_numpy(np.ndarray[unsigned long, ndim=1] array):
+    return np_max(array)
 
 def get_min_using_numpy(np.ndarray[unsigned long, ndim=1] array):
     return np_min(array)
-
-def get_min_using_c(np.ndarray[unsigned long, ndim=1] array):
-    return get_min_value_using_C(<unsigned long *> array.data, array.size)

@@ -5,7 +5,7 @@ from cython cimport Py_ssize_t
 
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cdef long double get_variance(
+cdef long double get_variance_cython(
     unsigned long *data_ptr, Py_ssize_t array_size, short ddof
     ):
     cdef Py_ssize_t i
@@ -20,6 +20,6 @@ cdef long double get_variance(
     return array_sum2 / (array_size - ddof)
 
 
-def get_variance_py_wrapper(np.ndarray[unsigned long, ndim=1] array, bint ddof=0):
+def get_variance(np.ndarray[unsigned long, ndim=1] array, bint ddof=0):
     # 'ddof' comes from: https://numpy.org/doc/stable/reference/generated/numpy.var.html
-    return get_variance(<unsigned long *> array.data, array.size, ddof)
+    return get_variance_cython(<unsigned long *> array.data, array.size, ddof)

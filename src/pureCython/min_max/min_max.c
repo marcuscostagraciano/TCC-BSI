@@ -2645,22 +2645,22 @@ static const char __pyx_k_np_min[] = "np_min";
 static const char __pyx_k_min_max[] = "min_max";
 static const char __pyx_k_ImportError[] = "ImportError";
 static const char __pyx_k_is_coroutine[] = "_is_coroutine";
+static const char __pyx_k_get_max_value[] = "get_max_value";
+static const char __pyx_k_get_min_value[] = "get_min_value";
 static const char __pyx_k_get_max_using_c[] = "get_max_using_c";
 static const char __pyx_k_get_min_using_c[] = "get_min_using_c";
 static const char __pyx_k_asyncio_coroutines[] = "asyncio.coroutines";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
-static const char __pyx_k_get_max_py_wrapper[] = "get_max_py_wrapper";
-static const char __pyx_k_get_min_py_wrapper[] = "get_min_py_wrapper";
 static const char __pyx_k_get_max_using_numpy[] = "get_max_using_numpy";
 static const char __pyx_k_get_min_using_numpy[] = "get_min_using_numpy";
 static const char __pyx_k_min_max_min_max_pyx[] = "min_max\\min_max.pyx";
 static const char __pyx_k_numpy__core_multiarray_failed_to[] = "numpy._core.multiarray failed to import";
 static const char __pyx_k_numpy__core_umath_failed_to_impo[] = "numpy._core.umath failed to import";
 /* #### Code section: decls ### */
-static PyObject *__pyx_pf_7min_max_get_max_py_wrapper(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_array); /* proto */
+static PyObject *__pyx_pf_7min_max_get_max_value(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_array); /* proto */
 static PyObject *__pyx_pf_7min_max_2get_max_using_numpy(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_array); /* proto */
 static PyObject *__pyx_pf_7min_max_4get_max_using_c(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_array); /* proto */
-static PyObject *__pyx_pf_7min_max_6get_min_py_wrapper(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_array); /* proto */
+static PyObject *__pyx_pf_7min_max_6get_min_value(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_array); /* proto */
 static PyObject *__pyx_pf_7min_max_8get_min_using_numpy(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_array); /* proto */
 static PyObject *__pyx_pf_7min_max_10get_min_using_c(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_array); /* proto */
 /* #### Code section: late_includes ### */
@@ -2734,12 +2734,12 @@ typedef struct {
   PyObject *__pyx_n_s_array;
   PyObject *__pyx_n_s_asyncio_coroutines;
   PyObject *__pyx_n_s_cline_in_traceback;
-  PyObject *__pyx_n_s_get_max_py_wrapper;
   PyObject *__pyx_n_s_get_max_using_c;
   PyObject *__pyx_n_s_get_max_using_numpy;
-  PyObject *__pyx_n_s_get_min_py_wrapper;
+  PyObject *__pyx_n_s_get_max_value;
   PyObject *__pyx_n_s_get_min_using_c;
   PyObject *__pyx_n_s_get_min_using_numpy;
+  PyObject *__pyx_n_s_get_min_value;
   PyObject *__pyx_n_s_import;
   PyObject *__pyx_n_s_is_coroutine;
   PyObject *__pyx_n_s_main;
@@ -2828,12 +2828,12 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_array);
   Py_CLEAR(clear_module_state->__pyx_n_s_asyncio_coroutines);
   Py_CLEAR(clear_module_state->__pyx_n_s_cline_in_traceback);
-  Py_CLEAR(clear_module_state->__pyx_n_s_get_max_py_wrapper);
   Py_CLEAR(clear_module_state->__pyx_n_s_get_max_using_c);
   Py_CLEAR(clear_module_state->__pyx_n_s_get_max_using_numpy);
-  Py_CLEAR(clear_module_state->__pyx_n_s_get_min_py_wrapper);
+  Py_CLEAR(clear_module_state->__pyx_n_s_get_max_value);
   Py_CLEAR(clear_module_state->__pyx_n_s_get_min_using_c);
   Py_CLEAR(clear_module_state->__pyx_n_s_get_min_using_numpy);
+  Py_CLEAR(clear_module_state->__pyx_n_s_get_min_value);
   Py_CLEAR(clear_module_state->__pyx_n_s_import);
   Py_CLEAR(clear_module_state->__pyx_n_s_is_coroutine);
   Py_CLEAR(clear_module_state->__pyx_n_s_main);
@@ -2900,12 +2900,12 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_array);
   Py_VISIT(traverse_module_state->__pyx_n_s_asyncio_coroutines);
   Py_VISIT(traverse_module_state->__pyx_n_s_cline_in_traceback);
-  Py_VISIT(traverse_module_state->__pyx_n_s_get_max_py_wrapper);
   Py_VISIT(traverse_module_state->__pyx_n_s_get_max_using_c);
   Py_VISIT(traverse_module_state->__pyx_n_s_get_max_using_numpy);
-  Py_VISIT(traverse_module_state->__pyx_n_s_get_min_py_wrapper);
+  Py_VISIT(traverse_module_state->__pyx_n_s_get_max_value);
   Py_VISIT(traverse_module_state->__pyx_n_s_get_min_using_c);
   Py_VISIT(traverse_module_state->__pyx_n_s_get_min_using_numpy);
+  Py_VISIT(traverse_module_state->__pyx_n_s_get_min_value);
   Py_VISIT(traverse_module_state->__pyx_n_s_import);
   Py_VISIT(traverse_module_state->__pyx_n_s_is_coroutine);
   Py_VISIT(traverse_module_state->__pyx_n_s_main);
@@ -3002,12 +3002,12 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_array __pyx_mstate_global->__pyx_n_s_array
 #define __pyx_n_s_asyncio_coroutines __pyx_mstate_global->__pyx_n_s_asyncio_coroutines
 #define __pyx_n_s_cline_in_traceback __pyx_mstate_global->__pyx_n_s_cline_in_traceback
-#define __pyx_n_s_get_max_py_wrapper __pyx_mstate_global->__pyx_n_s_get_max_py_wrapper
 #define __pyx_n_s_get_max_using_c __pyx_mstate_global->__pyx_n_s_get_max_using_c
 #define __pyx_n_s_get_max_using_numpy __pyx_mstate_global->__pyx_n_s_get_max_using_numpy
-#define __pyx_n_s_get_min_py_wrapper __pyx_mstate_global->__pyx_n_s_get_min_py_wrapper
+#define __pyx_n_s_get_max_value __pyx_mstate_global->__pyx_n_s_get_max_value
 #define __pyx_n_s_get_min_using_c __pyx_mstate_global->__pyx_n_s_get_min_using_c
 #define __pyx_n_s_get_min_using_numpy __pyx_mstate_global->__pyx_n_s_get_min_using_numpy
+#define __pyx_n_s_get_min_value __pyx_mstate_global->__pyx_n_s_get_min_value
 #define __pyx_n_s_import __pyx_mstate_global->__pyx_n_s_import
 #define __pyx_n_s_is_coroutine __pyx_mstate_global->__pyx_n_s_is_coroutine
 #define __pyx_n_s_main __pyx_mstate_global->__pyx_n_s_main
@@ -4886,7 +4886,7 @@ static long double __pyx_f_7min_max_get_min(unsigned long *__pyx_v_data_ptr, Py_
  *             min = data_ptr[i]
  *     return min             # <<<<<<<<<<<<<<
  * 
- * def get_max_py_wrapper(np.ndarray[unsigned long, ndim=1] array):
+ * def get_max_value(np.ndarray[unsigned long, ndim=1] array):
  */
   __pyx_r = __pyx_v_min;
   goto __pyx_L0;
@@ -4907,21 +4907,21 @@ static long double __pyx_f_7min_max_get_min(unsigned long *__pyx_v_data_ptr, Py_
 /* "min_max.pyx":36
  *     return min
  * 
- * def get_max_py_wrapper(np.ndarray[unsigned long, ndim=1] array):             # <<<<<<<<<<<<<<
+ * def get_max_value(np.ndarray[unsigned long, ndim=1] array):             # <<<<<<<<<<<<<<
  *     return get_max(<unsigned long *> array.data, array.size)
  * 
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_7min_max_1get_max_py_wrapper(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_7min_max_1get_max_value(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_7min_max_1get_max_py_wrapper = {"get_max_py_wrapper", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_7min_max_1get_max_py_wrapper, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_7min_max_1get_max_py_wrapper(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_7min_max_1get_max_value = {"get_max_value", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_7min_max_1get_max_value, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_7min_max_1get_max_value(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -4939,7 +4939,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   int __pyx_clineno = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("get_max_py_wrapper (wrapper)", 0);
+  __Pyx_RefNannySetupContext("get_max_value (wrapper)", 0);
   #if !CYTHON_METH_FASTCALL
   #if CYTHON_ASSUME_SAFE_MACROS
   __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
@@ -4970,7 +4970,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "get_max_py_wrapper") < 0)) __PYX_ERR(0, 36, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "get_max_value") < 0)) __PYX_ERR(0, 36, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -4981,7 +4981,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("get_max_py_wrapper", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 36, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("get_max_value", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 36, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -4991,12 +4991,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       __Pyx_Arg_XDECREF_FASTCALL(values[__pyx_temp]);
     }
   }
-  __Pyx_AddTraceback("min_max.get_max_py_wrapper", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("min_max.get_max_value", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_array), __pyx_ptype_5numpy_ndarray, 1, "array", 0))) __PYX_ERR(0, 36, __pyx_L1_error)
-  __pyx_r = __pyx_pf_7min_max_get_max_py_wrapper(__pyx_self, __pyx_v_array);
+  __pyx_r = __pyx_pf_7min_max_get_max_value(__pyx_self, __pyx_v_array);
 
   /* function exit code */
   goto __pyx_L0;
@@ -5013,7 +5013,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_7min_max_get_max_py_wrapper(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_array) {
+static PyObject *__pyx_pf_7min_max_get_max_value(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_array) {
   __Pyx_LocalBuf_ND __pyx_pybuffernd_array;
   __Pyx_Buffer __pyx_pybuffer_array;
   PyObject *__pyx_r = NULL;
@@ -5023,7 +5023,7 @@ static PyObject *__pyx_pf_7min_max_get_max_py_wrapper(CYTHON_UNUSED PyObject *__
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("get_max_py_wrapper", 1);
+  __Pyx_RefNannySetupContext("get_max_value", 1);
   __pyx_pybuffer_array.pybuffer.buf = NULL;
   __pyx_pybuffer_array.refcount = 0;
   __pyx_pybuffernd_array.data = NULL;
@@ -5036,7 +5036,7 @@ static PyObject *__pyx_pf_7min_max_get_max_py_wrapper(CYTHON_UNUSED PyObject *__
 
   /* "min_max.pyx":37
  * 
- * def get_max_py_wrapper(np.ndarray[unsigned long, ndim=1] array):
+ * def get_max_value(np.ndarray[unsigned long, ndim=1] array):
  *     return get_max(<unsigned long *> array.data, array.size)             # <<<<<<<<<<<<<<
  * 
  * def get_max_using_numpy(np.ndarray[unsigned long, ndim=1] array):
@@ -5052,7 +5052,7 @@ static PyObject *__pyx_pf_7min_max_get_max_py_wrapper(CYTHON_UNUSED PyObject *__
   /* "min_max.pyx":36
  *     return min
  * 
- * def get_max_py_wrapper(np.ndarray[unsigned long, ndim=1] array):             # <<<<<<<<<<<<<<
+ * def get_max_value(np.ndarray[unsigned long, ndim=1] array):             # <<<<<<<<<<<<<<
  *     return get_max(<unsigned long *> array.data, array.size)
  * 
  */
@@ -5066,7 +5066,7 @@ static PyObject *__pyx_pf_7min_max_get_max_py_wrapper(CYTHON_UNUSED PyObject *__
     __Pyx_ErrFetch(&__pyx_type, &__pyx_value, &__pyx_tb);
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_array.rcbuffer->pybuffer);
   __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
-  __Pyx_AddTraceback("min_max.get_max_py_wrapper", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("min_max.get_max_value", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   goto __pyx_L2;
   __pyx_L0:;
@@ -5409,7 +5409,7 @@ static PyObject *__pyx_pf_7min_max_4get_max_using_c(CYTHON_UNUSED PyObject *__py
  * def get_max_using_c(np.ndarray[unsigned long, ndim=1] array):
  *     return get_max_value_using_C(<unsigned long *> array.data, array.size)             # <<<<<<<<<<<<<<
  * 
- * def get_min_py_wrapper(np.ndarray[unsigned long, ndim=1] array):
+ * def get_min_value(np.ndarray[unsigned long, ndim=1] array):
  */
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_1 = __Pyx_PyInt_From_unsigned_long(get_max_value_using_C(((unsigned long *)__pyx_f_5numpy_7ndarray_4data_data(((PyArrayObject *)__pyx_v_array))), __pyx_f_5numpy_7ndarray_4size_size(((PyArrayObject *)__pyx_v_array)))); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 43, __pyx_L1_error)
@@ -5449,21 +5449,21 @@ static PyObject *__pyx_pf_7min_max_4get_max_using_c(CYTHON_UNUSED PyObject *__py
 /* "min_max.pyx":45
  *     return get_max_value_using_C(<unsigned long *> array.data, array.size)
  * 
- * def get_min_py_wrapper(np.ndarray[unsigned long, ndim=1] array):             # <<<<<<<<<<<<<<
+ * def get_min_value(np.ndarray[unsigned long, ndim=1] array):             # <<<<<<<<<<<<<<
  *     return get_min(<unsigned long *> array.data, array.size)
  * 
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_7min_max_7get_min_py_wrapper(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_7min_max_7get_min_value(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_7min_max_7get_min_py_wrapper = {"get_min_py_wrapper", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_7min_max_7get_min_py_wrapper, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_7min_max_7get_min_py_wrapper(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_7min_max_7get_min_value = {"get_min_value", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_7min_max_7get_min_value, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_7min_max_7get_min_value(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -5481,7 +5481,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   int __pyx_clineno = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("get_min_py_wrapper (wrapper)", 0);
+  __Pyx_RefNannySetupContext("get_min_value (wrapper)", 0);
   #if !CYTHON_METH_FASTCALL
   #if CYTHON_ASSUME_SAFE_MACROS
   __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
@@ -5512,7 +5512,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "get_min_py_wrapper") < 0)) __PYX_ERR(0, 45, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "get_min_value") < 0)) __PYX_ERR(0, 45, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -5523,7 +5523,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("get_min_py_wrapper", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 45, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("get_min_value", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 45, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -5533,12 +5533,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       __Pyx_Arg_XDECREF_FASTCALL(values[__pyx_temp]);
     }
   }
-  __Pyx_AddTraceback("min_max.get_min_py_wrapper", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("min_max.get_min_value", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_array), __pyx_ptype_5numpy_ndarray, 1, "array", 0))) __PYX_ERR(0, 45, __pyx_L1_error)
-  __pyx_r = __pyx_pf_7min_max_6get_min_py_wrapper(__pyx_self, __pyx_v_array);
+  __pyx_r = __pyx_pf_7min_max_6get_min_value(__pyx_self, __pyx_v_array);
 
   /* function exit code */
   goto __pyx_L0;
@@ -5555,7 +5555,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_7min_max_6get_min_py_wrapper(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_array) {
+static PyObject *__pyx_pf_7min_max_6get_min_value(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_array) {
   __Pyx_LocalBuf_ND __pyx_pybuffernd_array;
   __Pyx_Buffer __pyx_pybuffer_array;
   PyObject *__pyx_r = NULL;
@@ -5565,7 +5565,7 @@ static PyObject *__pyx_pf_7min_max_6get_min_py_wrapper(CYTHON_UNUSED PyObject *_
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("get_min_py_wrapper", 1);
+  __Pyx_RefNannySetupContext("get_min_value", 1);
   __pyx_pybuffer_array.pybuffer.buf = NULL;
   __pyx_pybuffer_array.refcount = 0;
   __pyx_pybuffernd_array.data = NULL;
@@ -5578,7 +5578,7 @@ static PyObject *__pyx_pf_7min_max_6get_min_py_wrapper(CYTHON_UNUSED PyObject *_
 
   /* "min_max.pyx":46
  * 
- * def get_min_py_wrapper(np.ndarray[unsigned long, ndim=1] array):
+ * def get_min_value(np.ndarray[unsigned long, ndim=1] array):
  *     return get_min(<unsigned long *> array.data, array.size)             # <<<<<<<<<<<<<<
  * 
  * def get_min_using_numpy(np.ndarray[unsigned long, ndim=1] array):
@@ -5594,7 +5594,7 @@ static PyObject *__pyx_pf_7min_max_6get_min_py_wrapper(CYTHON_UNUSED PyObject *_
   /* "min_max.pyx":45
  *     return get_max_value_using_C(<unsigned long *> array.data, array.size)
  * 
- * def get_min_py_wrapper(np.ndarray[unsigned long, ndim=1] array):             # <<<<<<<<<<<<<<
+ * def get_min_value(np.ndarray[unsigned long, ndim=1] array):             # <<<<<<<<<<<<<<
  *     return get_min(<unsigned long *> array.data, array.size)
  * 
  */
@@ -5608,7 +5608,7 @@ static PyObject *__pyx_pf_7min_max_6get_min_py_wrapper(CYTHON_UNUSED PyObject *_
     __Pyx_ErrFetch(&__pyx_type, &__pyx_value, &__pyx_tb);
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_array.rcbuffer->pybuffer);
   __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
-  __Pyx_AddTraceback("min_max.get_min_py_wrapper", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("min_max.get_min_value", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   goto __pyx_L2;
   __pyx_L0:;
@@ -6006,12 +6006,12 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_array, __pyx_k_array, sizeof(__pyx_k_array), 0, 0, 1, 1},
     {&__pyx_n_s_asyncio_coroutines, __pyx_k_asyncio_coroutines, sizeof(__pyx_k_asyncio_coroutines), 0, 0, 1, 1},
     {&__pyx_n_s_cline_in_traceback, __pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 0, 1, 1},
-    {&__pyx_n_s_get_max_py_wrapper, __pyx_k_get_max_py_wrapper, sizeof(__pyx_k_get_max_py_wrapper), 0, 0, 1, 1},
     {&__pyx_n_s_get_max_using_c, __pyx_k_get_max_using_c, sizeof(__pyx_k_get_max_using_c), 0, 0, 1, 1},
     {&__pyx_n_s_get_max_using_numpy, __pyx_k_get_max_using_numpy, sizeof(__pyx_k_get_max_using_numpy), 0, 0, 1, 1},
-    {&__pyx_n_s_get_min_py_wrapper, __pyx_k_get_min_py_wrapper, sizeof(__pyx_k_get_min_py_wrapper), 0, 0, 1, 1},
+    {&__pyx_n_s_get_max_value, __pyx_k_get_max_value, sizeof(__pyx_k_get_max_value), 0, 0, 1, 1},
     {&__pyx_n_s_get_min_using_c, __pyx_k_get_min_using_c, sizeof(__pyx_k_get_min_using_c), 0, 0, 1, 1},
     {&__pyx_n_s_get_min_using_numpy, __pyx_k_get_min_using_numpy, sizeof(__pyx_k_get_min_using_numpy), 0, 0, 1, 1},
+    {&__pyx_n_s_get_min_value, __pyx_k_get_min_value, sizeof(__pyx_k_get_min_value), 0, 0, 1, 1},
     {&__pyx_n_s_import, __pyx_k_import, sizeof(__pyx_k_import), 0, 0, 1, 1},
     {&__pyx_n_s_is_coroutine, __pyx_k_is_coroutine, sizeof(__pyx_k_is_coroutine), 0, 0, 1, 1},
     {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
@@ -6070,14 +6070,14 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   /* "min_max.pyx":36
  *     return min
  * 
- * def get_max_py_wrapper(np.ndarray[unsigned long, ndim=1] array):             # <<<<<<<<<<<<<<
+ * def get_max_value(np.ndarray[unsigned long, ndim=1] array):             # <<<<<<<<<<<<<<
  *     return get_max(<unsigned long *> array.data, array.size)
  * 
  */
   __pyx_tuple__4 = PyTuple_Pack(1, __pyx_n_s_array); if (unlikely(!__pyx_tuple__4)) __PYX_ERR(0, 36, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__4);
   __Pyx_GIVEREF(__pyx_tuple__4);
-  __pyx_codeobj__5 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__4, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_min_max_min_max_pyx, __pyx_n_s_get_max_py_wrapper, 36, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__5)) __PYX_ERR(0, 36, __pyx_L1_error)
+  __pyx_codeobj__5 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__4, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_min_max_min_max_pyx, __pyx_n_s_get_max_value, 36, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__5)) __PYX_ERR(0, 36, __pyx_L1_error)
 
   /* "min_max.pyx":39
  *     return get_max(<unsigned long *> array.data, array.size)
@@ -6100,11 +6100,11 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   /* "min_max.pyx":45
  *     return get_max_value_using_C(<unsigned long *> array.data, array.size)
  * 
- * def get_min_py_wrapper(np.ndarray[unsigned long, ndim=1] array):             # <<<<<<<<<<<<<<
+ * def get_min_value(np.ndarray[unsigned long, ndim=1] array):             # <<<<<<<<<<<<<<
  *     return get_min(<unsigned long *> array.data, array.size)
  * 
  */
-  __pyx_codeobj__8 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__4, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_min_max_min_max_pyx, __pyx_n_s_get_min_py_wrapper, 45, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__8)) __PYX_ERR(0, 45, __pyx_L1_error)
+  __pyx_codeobj__8 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__4, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_min_max_min_max_pyx, __pyx_n_s_get_min_value, 45, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__8)) __PYX_ERR(0, 45, __pyx_L1_error)
 
   /* "min_max.pyx":48
  *     return get_min(<unsigned long *> array.data, array.size)
@@ -6576,13 +6576,13 @@ if (!__Pyx_RefNanny) {
   /* "min_max.pyx":36
  *     return min
  * 
- * def get_max_py_wrapper(np.ndarray[unsigned long, ndim=1] array):             # <<<<<<<<<<<<<<
+ * def get_max_value(np.ndarray[unsigned long, ndim=1] array):             # <<<<<<<<<<<<<<
  *     return get_max(<unsigned long *> array.data, array.size)
  * 
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_7min_max_1get_max_py_wrapper, 0, __pyx_n_s_get_max_py_wrapper, NULL, __pyx_n_s_min_max, __pyx_d, ((PyObject *)__pyx_codeobj__5)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 36, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_7min_max_1get_max_value, 0, __pyx_n_s_get_max_value, NULL, __pyx_n_s_min_max, __pyx_d, ((PyObject *)__pyx_codeobj__5)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 36, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_get_max_py_wrapper, __pyx_t_3) < 0) __PYX_ERR(0, 36, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_get_max_value, __pyx_t_3) < 0) __PYX_ERR(0, 36, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "min_max.pyx":39
@@ -6612,13 +6612,13 @@ if (!__Pyx_RefNanny) {
   /* "min_max.pyx":45
  *     return get_max_value_using_C(<unsigned long *> array.data, array.size)
  * 
- * def get_min_py_wrapper(np.ndarray[unsigned long, ndim=1] array):             # <<<<<<<<<<<<<<
+ * def get_min_value(np.ndarray[unsigned long, ndim=1] array):             # <<<<<<<<<<<<<<
  *     return get_min(<unsigned long *> array.data, array.size)
  * 
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_7min_max_7get_min_py_wrapper, 0, __pyx_n_s_get_min_py_wrapper, NULL, __pyx_n_s_min_max, __pyx_d, ((PyObject *)__pyx_codeobj__8)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 45, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_7min_max_7get_min_value, 0, __pyx_n_s_get_min_value, NULL, __pyx_n_s_min_max, __pyx_d, ((PyObject *)__pyx_codeobj__8)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 45, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_get_min_py_wrapper, __pyx_t_3) < 0) __PYX_ERR(0, 45, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_get_min_value, __pyx_t_3) < 0) __PYX_ERR(0, 45, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "min_max.pyx":48
