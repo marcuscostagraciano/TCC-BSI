@@ -1,6 +1,5 @@
-# from .max_value import get_max_value_using_C_implementation
-
-# from .amplitude import get_amplitude, get_amplitude_using_C_minMax
+from .amplitude import get_amplitude as get_amplitude
+from .amplitude import get_amplitude_using_C_minMax
 from .mean import get_mean
 from .min_max import (
     get_max_using_c,
