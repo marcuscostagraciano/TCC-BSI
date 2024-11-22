@@ -1,5 +1,6 @@
 # compile files: python ./src/pureCython/setup.py build_ext --inplace
 # clean files: python ./src/pureCython/setup.py clean --all
+# clean files: python ./src/pureCython/setup.py clean --all
 
 import os
 from typing import Final
