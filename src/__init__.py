@@ -7,4 +7,5 @@ from .pureCython import (
     get_min_using_c,
     get_min_value,
     get_variance,
+    merge_sort,
 )
