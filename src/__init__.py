@@ -8,4 +8,5 @@ from .pureCython import (
     get_min_value,
     get_variance,
     merge_sort,
+    merge_sort_fast,
 )
