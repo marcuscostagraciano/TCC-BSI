@@ -1,12 +1,13 @@
-from src.tests.main import get_max_value_using_c
-
-
-def run_tests() -> None:
-    get_max_value_using_c()
+from src.tests import Tests
 
 
 def main() -> None:
-    run_tests()
+    Tests.set_download(
+        download=True,
+        download_folder="graphs",
+        only_download=True,
+    )
+    Tests.run_max_value_tests()
 
 
 if __name__ == "__main__":

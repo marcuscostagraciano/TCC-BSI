@@ -1,5 +1,7 @@
+import os
 from abc import ABC, abstractmethod
 from typing import Final, Self
+from uuid import uuid4
 
 import matplotlib.pyplot as plt
 
@@ -26,7 +28,7 @@ class BaseGraph(ABC):
         self.timings_data = graph_config.timings_data
         self.title = graph_config.title if title is None else title
 
-    def setGraphInfo(self):
+    def __setGraphInfo(self):
         """Função usada para definir as informações básicas sobre o gráfico."""
         plt.grid(self.grid)
         plt.title(self.title)
@@ -35,9 +37,25 @@ class BaseGraph(ABC):
 
     def generate(self):
         """Função usada como "wrapper" de outras funções essenciais para geração dos gráficos."""
-        self.setGraphInfo()
+        self.__setGraphInfo()
         self._generate()
         plt.show()
+
+
+    def download(self, download_folder: str) -> None:
+        """Função usada para salvar o gráfico gerado.
+
+        Args:
+                download_folder (str): Caminho onde o gráfico será salvo.
+        """
+
+        # Verifica se o diretório existe, caso contrário, cria
+        os.makedirs(download_folder, exist_ok=True)
+
+        self.__setGraphInfo()
+        self._generate()
+        plt.savefig(f"{download_folder}/{self.title} - {uuid4()}.png")
+
 
     @abstractmethod
     def _generate(self):

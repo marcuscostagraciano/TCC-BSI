@@ -14,7 +14,7 @@ from src import (
     get_min_value,
 )
 
-from . import ARRAY_NUMEROS, NUM_REGISTROS
+from . import ARRAY_NUMEROS, NUM_REGISTROS, NUM_REPETICOES
 
 NP_FUNCTIONS: dict[str, str] = {
     "max": "np.max",
@@ -29,7 +29,7 @@ def repeaterTimer(
     # Força o uso de parâmetros nomeados (kwargs)
     *,
     function: Callable[..., float],
-    repeatTimes: int,
+    repeatTimes: int | None = None,
     number: int = 1,
     # Timer padrão utilizado pelo módulo. Fonte: https://docs.python.org/3/library/timeit.html#timeit.default_timer
     timer: Callable[..., float] = time.perf_counter,
@@ -45,6 +45,9 @@ def repeaterTimer(
     Returns:
             list[int | float]: Lista contendo o(s) tempo(s) da(s) medição(ões).
     """
+    # Se não for passado, usa o padrão definido no arquivo de constantes
+    repeatTimes = NUM_REPETICOES if repeatTimes is None else repeatTimes
+
     # Pega o nome da função
     dunder_function_name = function.__name__
     # Usa a função do NumPy se existir no dicionário, senão mantém a original.
