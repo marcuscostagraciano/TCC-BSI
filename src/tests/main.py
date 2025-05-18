@@ -1,15 +1,8 @@
 import numpy as np
 import pandas as pd
 
-from src import (
-    get_amplitude,
-    get_amplitude_using_C_minMax,
-    get_max_using_c,
-    get_max_value,
-    get_mean,
-    get_min_using_c,
-    get_min_value,
-)
+from src import (get_amplitude, get_amplitude_using_C_minMax, get_max_using_c,
+                 get_max_value, get_mean, get_min_using_c, get_min_value)
 from src.classes import GraphConfig, LinePlot, ViolinPlot
 from src.utils.reapeaterTimer import repeaterTimer
 
@@ -31,16 +24,17 @@ class BaseTests:
             config (GraphConfig): Objeto contendo as informações necessárias para a geração do gráfico.
         """
 
+        # Verifica se o download dos gráficos é necessário
         if cls.__download or cls.__only_download:
             LinePlot(config).download(cls.__download_folder)
             ViolinPlot(config).download(cls.__download_folder)
-        elif not cls.__only_download:
+        if not cls.__only_download:
             LinePlot(config).generate()
             ViolinPlot(config).generate()
 
 
     @classmethod
-    def set_download(cls, download: bool, download_folder: str, only_download: bool) -> None:
+    def set_download(cls, download: bool = False, download_folder: str = '', only_download: bool = False) -> type['BaseTests']:
         """Função usada para definir se os gráficos devem ser salvos e o caminho onde serão salvos.
 
         Args:
@@ -48,8 +42,10 @@ class BaseTests:
             download_folder (str): Caminho onde os gráficos serão salvos.
         """
         cls.__download = download
-        cls.__download_folder = download_folder
         cls.__only_download = only_download
+        cls.__download_folder = download_folder if download_folder else 'graphs'
+
+        return cls
 
 
 class Tests(BaseTests):
@@ -183,40 +179,45 @@ class Tests(BaseTests):
 
 
     @classmethod
-    def run_max_value_tests(cls):
+    def run_max_value_tests(cls) -> type['Tests']:
         """Função usada para executar os testes de valor máximo."""
         cls.get_max_value_using_c()
         cls.get_max_value_using_cython()
 
+        return cls
+
 
     @classmethod
-    def run_min_value_tests(cls):
+    def run_min_value_tests(cls) -> type['Tests']:
         """Função usada para executar os testes de valor mínimo."""
         cls.get_min_value_using_c()
         cls.get_min_value_using_cython()
 
+        return cls
+
 
     @classmethod
-    def run_mean_tests(cls):
+    def run_mean_value_tests(cls) -> type['Tests']:
         """Função usada para executar os testes de média aritmética."""
         cls.get_mean_using_cython()
 
+        return cls
+
 
     @classmethod
-    def run_amplitude_tests(cls):
+    def run_amplitude_tests(cls) -> type['Tests']:
         """Função usada para executar os testes de amplitude."""
         cls.get_amplitude_using_c()
         cls.get_amplitude_using_cython()
 
+        return cls
+
 
     @classmethod
-    def run_all_tests(cls):
-        """Função usada para executar todos os testes de desempenho.
-        Args:
-            download (bool, optional): Se True, salva os gráficos gerados.
-            download_folder (str, optional): Caminho onde os gráficos serão salvos.
-        """
+    def run_all_tests(cls) -> type['Tests']:
         cls.run_max_value_tests()
         cls.run_min_value_tests()
-        cls.run_mean_tests()
+        cls.run_mean_value_tests()
         cls.run_amplitude_tests()
+
+        return cls

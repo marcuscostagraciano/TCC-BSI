@@ -1,7 +1,6 @@
 import os
 from abc import ABC, abstractmethod
 from typing import Final, Self
-from uuid import uuid4
 
 import matplotlib.pyplot as plt
 
@@ -10,6 +9,7 @@ from . import GraphConfig
 
 class BaseGraph(ABC):
     """Classe base para geração de gráficos."""
+
 
     def __init__(
         self: Self, graph_config: GraphConfig, *, title: str | None = None
@@ -28,12 +28,14 @@ class BaseGraph(ABC):
         self.timings_data = graph_config.timings_data
         self.title = graph_config.title if title is None else title
 
+
     def __setGraphInfo(self):
         """Função usada para definir as informações básicas sobre o gráfico."""
         plt.grid(self.grid)
         plt.title(self.title)
         plt.xlabel(self.xlabel)
         plt.ylabel(self.ylabel)
+
 
     def generate(self):
         """Função usada como "wrapper" de outras funções essenciais para geração dos gráficos."""
@@ -54,7 +56,7 @@ class BaseGraph(ABC):
 
         self.__setGraphInfo()
         self._generate()
-        plt.savefig(f"{download_folder}/{self.title} - {uuid4()}.png")
+        plt.savefig(f"{download_folder}/{self.title} - {self.__class__.__name__}.png")
 
 
     @abstractmethod
@@ -65,6 +67,7 @@ class BaseGraph(ABC):
 
 class Boxplot(BaseGraph):
     """Classe usada para gerar gráficos de caixa."""
+
 
     def __init__(
         self: Self,
@@ -79,6 +82,7 @@ class Boxplot(BaseGraph):
                 title (str | None): Se passado, sobrescreve o título do graph_config.
         """
         super().__init__(graph_config, title=title)
+
 
     def _generate(self):
         FACECOLORS: Final[tuple[str, ...]] = ("blue", "purple", "brown", "orange")
@@ -99,6 +103,7 @@ class Boxplot(BaseGraph):
 
 class ViolinPlot(BaseGraph):
     """Classe usada para gerar gráficos de "violino"."""
+
 
     def __init__(
         self: Self,
@@ -121,6 +126,7 @@ class ViolinPlot(BaseGraph):
         self.showextrema = showextrema
         super().__init__(graph_config, title=title)
 
+
     def _generate(self):
         plt_return = plt.violinplot(
             self.timings_data,
@@ -135,6 +141,7 @@ class ViolinPlot(BaseGraph):
 
 class LinePlot(BaseGraph):
     """Classe usada para gerar gráficos de linha."""
+
 
     def __init__(
         self: Self,
@@ -151,6 +158,10 @@ class LinePlot(BaseGraph):
         """
         super().__init__(graph_config, title=title)
 
+
     def _generate(self):
-        plt.plot(self.timings_data)
+        plt_return = plt.plot(self.timings_data)
+        plt_return[0].set_color("#64a4cc")
+        plt_return[1].set_color("#fb9130")
+
         plt.legend(self.timings_data.columns)
