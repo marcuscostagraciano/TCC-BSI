@@ -9,7 +9,7 @@ from src.utils.reapeaterTimer import repeaterTimer
 
 class BaseTests:
     __download: bool = False
-    __only_download: bool = False
+    __only_download: bool = True
     __download_folder: str = ""
 
 
@@ -34,12 +34,18 @@ class BaseTests:
 
 
     @classmethod
-    def set_download(cls, download: bool = False, download_folder: str = '', only_download: bool = False) -> type['BaseTests']:
+    def set_download(
+            cls,
+            download: bool = False,
+            download_folder: str = '',
+            only_download: bool = True
+        ) -> type['BaseTests']:
         """Função usada para definir se os gráficos devem ser salvos e o caminho onde serão salvos.
 
         Args:
-            download (bool): Se True, salva os gráficos gerados.
-            download_folder (str): Caminho onde os gráficos serão salvos.
+            download (bool, optional): Se True, salva os gráficos gerados.
+            download_folder (str, optional): Caminho onde os gráficos serão salvos.
+            only_download (bool, opcional): Se True, salva os gráficos sem exibi-los.
         """
         cls.__download = download
         cls.__only_download = only_download
@@ -215,6 +221,7 @@ class Tests(BaseTests):
 
     @classmethod
     def run_all_tests(cls) -> type['Tests']:
+        """Função usada para executar todos os testes de desempenho."""
         cls.run_max_value_tests()
         cls.run_min_value_tests()
         cls.run_mean_value_tests()

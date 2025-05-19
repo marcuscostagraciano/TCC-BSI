@@ -57,6 +57,7 @@ class BaseGraph(ABC):
         self.__setGraphInfo()
         self._generate()
         plt.savefig(f"{download_folder}/{self.title} - {self.__class__.__name__}.png")
+        plt.close()
 
 
     @abstractmethod
@@ -128,15 +129,18 @@ class ViolinPlot(BaseGraph):
 
 
     def _generate(self):
+        positions = range(1, len(self.timings_data.columns) + 1)
         plt_return = plt.violinplot(
             self.timings_data,
+            positions=positions,
             showmeans=self.showmeans,
             showextrema=self.showextrema,
         )
         plt_return["bodies"][0].set_facecolor("#64a4cc")
         plt_return["bodies"][1].set_facecolor("#fb9130")
 
-        plt.legend(self.timings_data.columns)
+        plt.xticks(positions, self.timings_data.columns)
+        plt.legend(self.timings_data.columns, loc=self.loc)
 
 
 class LinePlot(BaseGraph):
