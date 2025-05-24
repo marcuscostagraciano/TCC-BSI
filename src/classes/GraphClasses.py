@@ -1,14 +1,14 @@
 """Classes para geração de gráficos"""
 import os
-from abc import ABC, abstractmethod
-from typing import Final, Self
+from abc import abstractmethod
+from typing import final, Final, Self
 
 import matplotlib.pyplot as plt
 
 from . import GraphConfig
 
 
-class BaseGraph(ABC):
+class BaseGraph():
     """Classe base para geração de gráficos."""
     CYTHON_LEGEND_COLOR: Final[str] = "#64a4cc"
     NUMPY_LEGEND_COLOR: Final[str] = "#fb9230"
@@ -39,6 +39,7 @@ class BaseGraph(ABC):
         plt.ylabel(self.ylabel)
 
 
+    @final
     def generate(self):
         """Função usada como "wrapper" de outras funções essenciais para geração dos gráficos."""
         self.__setGraphInfo()
@@ -46,6 +47,7 @@ class BaseGraph(ABC):
         plt.show()
 
 
+    @final
     def downloadGraph(self, download_folder: str) -> None:
         """Função usada para salvar o gráfico gerado.
 
@@ -61,6 +63,24 @@ class BaseGraph(ABC):
         self._generate()
         plt.savefig(f"{download_folder}/{self.title} - {self.__class__.__name__}.png")
         plt.close()
+
+
+    @final
+    def downloadData(self, download_folder: str) -> None:
+        """Função usada para salvar os dados do gráfico gerado.
+
+        Args:
+                download_folder (str): Caminho onde os dados serão salvos.
+        """
+        download_folder = download_folder if download_folder else "data"
+
+        # Verifica se o diretório existe, caso contrário, cria
+        os.makedirs(download_folder, exist_ok=True)
+
+        self.timings_data.to_csv(
+            f"{download_folder}/{self.title}.csv",
+            index=False,
+        )
 
 
     @abstractmethod

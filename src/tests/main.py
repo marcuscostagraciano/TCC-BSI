@@ -5,14 +5,16 @@ from src.pureCython import (
     get_amplitude, get_amplitude_using_C_minMax, get_max_using_c,
     get_max_value, get_mean, get_min_using_c, get_min_value
 )
-from src.classes import GraphConfig, LinePlot, ViolinPlot
+from src.classes import BaseGraph, GraphConfig, LinePlot, ViolinPlot
 from src.utils.reapeaterTimer import repeaterTimer
 
 
 class BaseTests:
-    __download: bool = True
     __show_graphs: bool = False
-    __download_folder: str = ""
+    __graph_download: bool = True
+    __data_download: bool = True
+    __graph_download_folder: str = ""
+    __data_download_folder: str = ""
 
 
     @classmethod
@@ -26,10 +28,11 @@ class BaseTests:
             config (GraphConfig): Objeto contendo as informações necessárias para a geração do gráfico.
         """
 
-        # Verifica se o download dos gráficos é necessário
-        if cls.__download:
-            LinePlot(config).downloadGraph(cls.__download_folder)
-            ViolinPlot(config).downloadGraph(cls.__download_folder)
+        if cls.__graph_download:
+            LinePlot(config).downloadGraph(cls.__graph_download_folder)
+            ViolinPlot(config).downloadGraph(cls.__graph_download_folder)
+        if cls.__data_download:
+            BaseGraph(config).downloadData(cls.__data_download_folder)
         if cls.__show_graphs:
             LinePlot(config).generate()
             ViolinPlot(config).generate()
@@ -38,20 +41,29 @@ class BaseTests:
     @classmethod
     def set_download(
             cls,
-            download: bool = True,
-            download_folder: str = '',
-            show_graphs: bool = False
+            *,
+            show_graphs: bool = False,
+            graph_download: bool = True,
+            graph_download_folder: str = '',
+            data_download: bool = True,
+            data_download_folder: str = '',
         ) -> type['BaseTests']:
         """Função usada para definir se os gráficos devem ser exibidos/salvos e o caminho onde serão salvos.
 
         Args:
-            download (bool, optional): Se True, salva os gráficos gerados.
-            download_folder (str, optional): Caminho onde os gráficos serão salvos.
             show_graphs (bool, opcional): Se True, exibe os gráficos.
+            graph_download (bool, opcional): Se True, salva os gráficos gerados.
+            graph_download_folder (str, opcional): Caminho onde os gráficos serão salvos.
+            data_download (bool, opcional): Se True, salva os dados dos gráficos gerados.
+            data_download_folder (str, opcional): Caminho onde os dados dos gráficos serão salvos.
         """
-        cls.__download = download
         cls.__show_graphs = show_graphs
-        cls.__download_folder = download_folder
+
+        cls.__graph_download = graph_download
+        cls.__graph_download_folder = graph_download_folder
+
+        cls.__data_download = data_download
+        cls.__data_download_folder = data_download_folder
 
         return cls
 
