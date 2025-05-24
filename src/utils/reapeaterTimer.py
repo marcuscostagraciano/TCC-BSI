@@ -4,14 +4,9 @@ from typing import Callable
 
 import numpy as np
 
-from src import (
-    get_amplitude,
-    get_amplitude_using_C_minMax,
-    get_max_using_c,
-    get_max_value,
-    get_mean,
-    get_min_using_c,
-    get_min_value,
+from src.pureCython import (
+    get_amplitude, get_amplitude_using_C_minMax, get_max_using_c,
+    get_max_value, get_mean, get_min_using_c, get_min_value
 )
 
 from . import ARRAY_NUMEROS, NUM_REGISTROS, NUM_REPETICOES

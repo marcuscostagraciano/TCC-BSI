@@ -50,6 +50,7 @@ class BaseGraph(ABC):
         Args:
                 download_folder (str): Caminho onde o gráfico será salvo.
         """
+        download_folder = download_folder if download_folder else "graphs"
 
         # Verifica se o diretório existe, caso contrário, cria
         os.makedirs(download_folder, exist_ok=True)

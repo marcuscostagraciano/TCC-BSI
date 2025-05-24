@@ -1,8 +1,10 @@
 import numpy as np
 import pandas as pd
 
-from src import (get_amplitude, get_amplitude_using_C_minMax, get_max_using_c,
-                 get_max_value, get_mean, get_min_using_c, get_min_value)
+from src.pureCython import (
+    get_amplitude, get_amplitude_using_C_minMax, get_max_using_c,
+    get_max_value, get_mean, get_min_using_c, get_min_value
+)
 from src.classes import GraphConfig, LinePlot, ViolinPlot
 from src.utils.reapeaterTimer import repeaterTimer
 
@@ -49,7 +51,7 @@ class BaseTests:
         """
         cls.__download = download
         cls.__only_download = only_download
-        cls.__download_folder = download_folder if download_folder else 'graphs'
+        cls.__download_folder = download_folder
 
         return cls
 
