@@ -26,8 +26,8 @@ def repeaterTimer(
     function: Callable[..., float],
     repeatTimes: int | None = None,
     number: int = 1,
-    # Timer padrão utilizado pelo módulo. Fonte: https://docs.python.org/3/library/timeit.html#timeit.default_timer
-    timer: Callable[..., float] = time.perf_counter,
+    # perf_counter() é o timer padrão utilizado pelo módulo. Fonte: https://docs.python.org/3/library/timeit.html#timeit.default_timer
+    timer: Callable[..., float] = time.perf_counter_ns,
 ) -> list[int | float]:
     """Função usada para retornar a lista de medições de tempo com base na função passada como argumento.
 
@@ -35,7 +35,7 @@ def repeaterTimer(
             function (Callable): Função a ser cronometrada.
             repeatTimes (int): Número de medições feitas.
             number (int, optional): Número de execuções da função por medição. Padrão = 1.
-            timer (Callable, optional): Timer usado para cronometrar a função. Usa, por padrão, o método perf_counter.
+            timer (Callable, optional): Timer usado para cronometrar a função. Usa, por padrão, o método perf_counter_ns.
 
     Returns:
             list[int | float]: Lista contendo o(s) tempo(s) da(s) medição(ões).
