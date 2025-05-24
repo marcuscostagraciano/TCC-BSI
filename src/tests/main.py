@@ -10,8 +10,8 @@ from src.utils.reapeaterTimer import repeaterTimer
 
 
 class BaseTests:
-    __download: bool = False
-    __only_download: bool = True
+    __download: bool = True
+    __show_graphs: bool = False
     __download_folder: str = ""
 
 
@@ -27,10 +27,10 @@ class BaseTests:
         """
 
         # Verifica se o download dos gráficos é necessário
-        if cls.__download or cls.__only_download:
-            LinePlot(config).download(cls.__download_folder)
-            ViolinPlot(config).download(cls.__download_folder)
-        if not cls.__only_download:
+        if cls.__download:
+            LinePlot(config).downloadGraph(cls.__download_folder)
+            ViolinPlot(config).downloadGraph(cls.__download_folder)
+        if cls.__show_graphs:
             LinePlot(config).generate()
             ViolinPlot(config).generate()
 
@@ -38,19 +38,19 @@ class BaseTests:
     @classmethod
     def set_download(
             cls,
-            download: bool = False,
+            download: bool = True,
             download_folder: str = '',
-            only_download: bool = True
+            show_graphs: bool = False
         ) -> type['BaseTests']:
-        """Função usada para definir se os gráficos devem ser salvos e o caminho onde serão salvos.
+        """Função usada para definir se os gráficos devem ser exibidos/salvos e o caminho onde serão salvos.
 
         Args:
             download (bool, optional): Se True, salva os gráficos gerados.
             download_folder (str, optional): Caminho onde os gráficos serão salvos.
-            only_download (bool, opcional): Se True, salva os gráficos sem exibi-los.
+            show_graphs (bool, opcional): Se True, exibe os gráficos.
         """
         cls.__download = download
-        cls.__only_download = only_download
+        cls.__show_graphs = show_graphs
         cls.__download_folder = download_folder
 
         return cls

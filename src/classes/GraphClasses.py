@@ -1,3 +1,4 @@
+"""Classes para geração de gráficos"""
 import os
 from abc import ABC, abstractmethod
 from typing import Final, Self
@@ -9,7 +10,8 @@ from . import GraphConfig
 
 class BaseGraph(ABC):
     """Classe base para geração de gráficos."""
-
+    CYTHON_LEGEND_COLOR: Final[str] = "#64a4cc"
+    NUMPY_LEGEND_COLOR: Final[str] = "#fb9230"
 
     def __init__(
         self: Self, graph_config: GraphConfig, *, title: str | None = None
@@ -44,7 +46,7 @@ class BaseGraph(ABC):
         plt.show()
 
 
-    def download(self, download_folder: str) -> None:
+    def downloadGraph(self, download_folder: str) -> None:
         """Função usada para salvar o gráfico gerado.
 
         Args:
@@ -70,22 +72,6 @@ class BaseGraph(ABC):
 class Boxplot(BaseGraph):
     """Classe usada para gerar gráficos de caixa."""
 
-
-    def __init__(
-        self: Self,
-        graph_config: GraphConfig,
-        title: str | None = None,
-    ) -> None:
-        """Função usada para instanciar um objeto da classe específica.
-
-        Args:
-                self (Self): Parâmetro passado automaticamente referente ao objeto sendo instanciado.
-                graph_config (GraphConfig): Objeto contendo as informações necessárias para a geração do gráfico.
-                title (str | None): Se passado, sobrescreve o título do graph_config.
-        """
-        super().__init__(graph_config, title=title)
-
-
     def _generate(self):
         FACECOLORS: Final[tuple[str, ...]] = ("blue", "purple", "brown", "orange")
 
@@ -105,7 +91,6 @@ class Boxplot(BaseGraph):
 
 class ViolinPlot(BaseGraph):
     """Classe usada para gerar gráficos de "violino"."""
-
 
     def __init__(
         self: Self,
@@ -137,8 +122,8 @@ class ViolinPlot(BaseGraph):
             showmeans=self.showmeans,
             showextrema=self.showextrema,
         )
-        plt_return["bodies"][0].set_facecolor("#64a4cc")
-        plt_return["bodies"][1].set_facecolor("#fb9130")
+        plt_return["bodies"][0].set_facecolor(self.CYTHON_LEGEND_COLOR)
+        plt_return["bodies"][1].set_facecolor(self.NUMPY_LEGEND_COLOR)
 
         plt.xticks(positions, self.timings_data.columns)
         plt.legend(self.timings_data.columns, loc=self.loc)
@@ -147,26 +132,9 @@ class ViolinPlot(BaseGraph):
 class LinePlot(BaseGraph):
     """Classe usada para gerar gráficos de linha."""
 
-
-    def __init__(
-        self: Self,
-        graph_config: GraphConfig,
-        *,
-        title: str | None = None,
-    ) -> None:
-        """Função usada para instanciar um objeto da classe específica.
-
-        Args:
-                self (Self): Parâmetro passado automaticamente referente ao objeto sendo instanciado.
-                graph_config (GraphConfig): Objeto contendo as informações necessárias para a geração do gráfico.
-                title (str | None): Se passado, sobrescreve o título do graph_config.
-        """
-        super().__init__(graph_config, title=title)
-
-
     def _generate(self):
         plt_return = plt.plot(self.timings_data)
-        plt_return[0].set_color("#64a4cc")
-        plt_return[1].set_color("#fb9130")
+        plt_return[0].set_color(self.CYTHON_LEGEND_COLOR)
+        plt_return[1].set_color(self.NUMPY_LEGEND_COLOR)
 
         plt.legend(self.timings_data.columns)
