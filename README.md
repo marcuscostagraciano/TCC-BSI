@@ -9,11 +9,13 @@ Analisar e comparar o tempo de execução de diferentes operações estatística
 ## 🛠️ Compilação dos Módulos Cython
 
 Para compilar os arquivos Cython, execute:
+
 ```bash
 python ./src/pureCython/setup.py build_ext --inplace
 ```
 
 Para limpar os arquivos gerados:
+
 ```bash
 python ./src/pureCython/setup.py clean --all
 ```
@@ -23,6 +25,7 @@ python ./src/pureCython/setup.py clean --all
 ### Estrutura de Classes
 
 #### Classes de Gráficos
+
 - **GraphConfig**: Classe de configuração para geração de gráficos
   - Armazena configurações como título, legendas, grid e dados
   - Utiliza decorador `@dataclass` para simplificar a gestão de dados
@@ -37,6 +40,7 @@ python ./src/pureCython/setup.py clean --all
   - `LinePlot`: Gera gráficos de linha
 
 #### Classes de Testes
+
 - **BaseTests**: Classe base para testes de desempenho
   - Gerencia configurações de download dos gráficos
   - Implementa método genérico para geração de gráficos
@@ -58,6 +62,7 @@ python ./src/pureCython/setup.py clean --all
 ### Testes de Desempenho
 
 Os testes comparam as seguintes operações:
+
 - Valor Máximo (C e Cython vs NumPy)
 - Valor Mínimo (C e Cython vs NumPy)
 - Média Aritmética (Cython vs NumPy)
@@ -66,6 +71,7 @@ Os testes comparam as seguintes operações:
 ## ⚡ Executando os Testes
 
 ### Pré-requisitos
+
 - Python 3.10+
 - NumPy
 - Matplotlib
@@ -73,40 +79,48 @@ Os testes comparam as seguintes operações:
 - Cython
 
 ### Instalação
+
 ```bash
 pip install -r requirements.txt
 ```
 
 ### Execução
+
 1. **Via Python Script**:
+
 ```bash
 python main.py
 ```
 
 2. **Via Jupyter Notebook**:
+
 - Abra o arquivo `main.ipynb`
 - Execute as células sequencialmente
 
 ### Configurações dos Testes
+
 - `NUM_REPETICOES`: Número de vezes que cada teste é executado
 - `NUM_REGISTROS`: Tamanho do array de teste
 - As configurações podem ser ajustadas no arquivo `src/utils/consts.py`
 
 ### Visualização dos Resultados
+
 Os testes geram automaticamente:
+
 - Gráficos de violino para distribuição dos tempos
 - Gráficos de linha para análise temporal
 - Opção de salvar gráficos em disco via método `download()`
 
 ## 📊 Estrutura do Projeto
-```
+
+```markdown
 TCC-BSI/
 ├── src/
 │   ├── pureCython/      # Implementações Cython
 │   ├── classes/         # Classes de gráficos
-│   ├── tests/          # Testes de desempenho
-│   └── utils/          # Utilitários
-├── main.py             # Script principal
-├── main.ipynb          # Notebook Jupyter
-└── setup.py           # Configuração Cython
+│   ├── tests/           # Testes de desempenho
+│   └── utils/           # Utilitários
+├── main.py              # Script principal
+└── main.ipynb           # Notebook Jupyter
+└── setup.py             # Script de setup
 ```
