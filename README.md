@@ -1,6 +1,8 @@
 # Análise Comparativa: NumPy x Implementações C/Cython
 
-Este projeto visa comparar o desempenho de operações estatísticas básicas entre a biblioteca NumPy e implementações personalizadas em C e Cython.
+*Read this in other languages: [English](README.en.md)*
+
+Este projeto visa compararo desempenho de operações estatísticas básicas entre a biblioteca NumPy e implementações personalizadas em C e Cython.
 
 ## 🎯 Objetivo
 
@@ -8,21 +10,62 @@ Analisar e comparar o tempo de execução de diferentes operações estatística
 
 ## 🛠️ Compilação dos Módulos Cython
 
-Para compilar os arquivos Cython, execute:
+Para compilar os módulos Cython, utilize o script de setup com interface CLI:
 
 ```bash
-python ./src/pureCython/setup.py build_ext --inplace
+python setup.py build_ext --inplace
 ```
 
 Para limpar os arquivos gerados:
 
 ```bash
-python ./src/pureCython/setup.py clean --all
+python setup.py clean --all
 ```
+
+Para ver a ajuda detalhada do setup:
+
+```bash
+python setup.py --help-setup
+```
+
+### Interface CLI
+
+O script de setup possui uma interface de linha de comando que facilita a compilação e limpeza dos módulos:
+
+- `build_ext`: Compila todos os módulos Cython encontrados em `src/pureCython/`
+  - `--inplace`: Compila as extensões no local original dos arquivos
+- `clean`: Remove arquivos de compilação
+  - `--all`: Remove todos os artefatos de compilação
+- `--help-setup`: Exibe ajuda detalhada sobre os comandos disponíveis
 
 ## 🏗️ Arquitetura do Projeto
 
 ### Estrutura de Classes
+
+#### Classes de CLI
+
+- **CLIHandler**: Classe responsável pela interface de linha de comando
+  - Gerencia argumentos e opções do CLI
+  - Implementa parser de argumentos customizado
+  - Fornece mensagens de ajuda detalhadas
+  - Opções para build, clean e help
+  - Interface amigável com mensagens em português
+
+#### Classes de Setup
+
+- **SetupConfig**: Classe de configuração para o processo de build
+  - Define caminhos do projeto e configurações de build
+  - Gerencia filtros de arquivos e diretórios
+  - Utiliza dataclass para configuração simplificada
+  - Controle de quais arquivos devem ser ignorados
+  - Validação de caminhos do projeto
+
+- **CythonSetup**: Classe para gerenciamento da compilação
+  - Descobre automaticamente módulos Cython no projeto
+  - Gerencia a criação e compilação das extensões
+  - Utiliza métodos de classe para operações estáticas
+  - Suporte a compilação incremental
+  - Gerenciamento automático de dependências
 
 #### Classes de Gráficos
 
@@ -30,7 +73,7 @@ python ./src/pureCython/setup.py clean --all
   - Armazena configurações como título, legendas, grid e dados
   - Utiliza decorador `@dataclass` para simplificar a gestão de dados
 
-- **BaseGraph**: Classe abstrata base para gráficos
+- **BaseGraph**: Classe base para gráficos
   - Define interface comum para todos os tipos de gráficos
   - Implementa funcionalidades básicas como configuração e geração
 
@@ -58,6 +101,7 @@ python ./src/pureCython/setup.py clean --all
     - Individual: por tipo de operação
     - Completa: todas as operações sequencialmente
   - Permite encadeamento de métodos (method chaining)
+  - Suporte a execução silenciosa (apenas download)
 
 ### Testes de Desempenho
 
@@ -86,16 +130,15 @@ pip install -r requirements.txt
 
 ### Execução
 
-1. **Via Python Script**:
+1. Via Python Script:
 
-```bash
-python main.py
-```
+   ```bash
+   python main.py
+   ```
 
-2. **Via Jupyter Notebook**:
-
-- Abra o arquivo `main.ipynb`
-- Execute as células sequencialmente
+1. Via Jupyter Notebook:
+   - Abra o arquivo `main.ipynb`
+   - Execute as células sequencialmente
 
 ### Configurações dos Testes
 
@@ -107,9 +150,10 @@ python main.py
 
 Os testes geram automaticamente:
 
-- Gráficos de violino para distribuição dos tempos
-- Gráficos de linha para análise temporal
-- Opção de salvar gráficos em disco via método `download()`
+- Gráficos de violino
+- Gráficos de linha
+- Dados brutos em formato CSV
+- Opção de salvar resultados sem exibição
 
 ## 📊 Estrutura do Projeto
 
@@ -117,10 +161,12 @@ Os testes geram automaticamente:
 TCC-BSI/
 ├── src/
 │   ├── pureCython/      # Implementações Cython
-│   ├── classes/         # Classes de gráficos
+│   ├── classes/         # Classes de gráficos e setup
 │   ├── tests/           # Testes de desempenho
 │   └── utils/           # Utilitários
 ├── main.py              # Script principal
-└── main.ipynb           # Notebook Jupyter
-└── setup.py             # Script de setup
+├── main.ipynb          # Notebook Jupyter
+└── setup.py            # Script de setup com CLI
 ```
+
+[<img align="right" alt="Voltar ao topo" src="https://img.shields.io/badge/%E2%86%91-Voltar%20ao%20topo-lightgrey" />](#análise-comparativa-numpy-x-implementações-ccython)
