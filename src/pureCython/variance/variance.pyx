@@ -1,10 +1,7 @@
 # cython: language_level=3, boundscheck=False, wraparound=False
-cimport cython
 cimport numpy as np
 from cython cimport Py_ssize_t
 
-@cython.boundscheck(False)
-@cython.wraparound(False)
 cdef long double get_variance_cython(
     unsigned long *data_ptr, Py_ssize_t array_size, short ddof
     ):
